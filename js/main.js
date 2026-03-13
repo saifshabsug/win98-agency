@@ -248,6 +248,10 @@ document.addEventListener('DOMContentLoaded', () => {
       dragTarget = handle.closest('.window');
       bringToFront(dragTarget);
       
+      // Clear bottom and right to prevent stretching when dragging
+      dragTarget.style.bottom = 'auto';
+      dragTarget.style.right = 'auto';
+      
       const rect = dragTarget.getBoundingClientRect();
       offsetX = e.clientX - rect.left;
       offsetY = e.clientY - rect.top;
