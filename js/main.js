@@ -433,6 +433,28 @@ document.addEventListener('DOMContentLoaded', () => {
       playClickSound();
       
       // Open Window logic (Single click for simpler web UX)
+      if (icon.id === 'icon-vip-vault') {
+        const vaultWin = document.getElementById('win-vip-vault');
+        if (vaultWin) {
+          vaultWin.classList.remove('minimized');
+          vaultWin.style.zIndex = ++highestZ;
+          ensureTaskbarButton('win-vip-vault', 'Security Verification');
+          
+          // Show Clippy Hint if it isn't already handled
+          setTimeout(() => {
+            const clippy = document.getElementById('clippy');
+            if (clippy) {
+                clippy.classList.remove('hidden');
+                document.getElementById('clippy-msg').innerHTML = `<p>شـــشـــش... استمع إلي! 🤔<br><br>هذا المجلد لا يفتح إلا للعملاء المهمين جداً... ولكن إذا كتبت كلمة <b>VIP</b> بالإنجليزية سأسمح لك بإلقاء نظرة خاطفة.</p>
+                <div class="mt-2 text-center">
+                  <button class="win-btn" onclick="document.getElementById('clippy').classList.add('hidden')">حسناً، فهمت</button>
+                </div>`;
+            }
+          }, 500);
+        }
+        return; // Important: escape generic logic below to prevent duplicate actions
+      }
+
       const winId = icon.getAttribute('data-window');
       const winEl = document.getElementById(winId);
       if (winEl) {
@@ -719,7 +741,169 @@ document.addEventListener('DOMContentLoaded', () => {
   initMinesweeper();
 
   // ==========================================
-  // 10. BSOD EASTER EGG
+  // X. MS PAINT GUESTBOOK LOGIC
+  // ==========================================
+  const canvas = document.getElementById('paint-canvas');
+  if(canvas) {
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let currentColor = 'black';
+    let currentSize = 2;
+
+    canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      ctx.beginPath();
+      ctx.moveTo(e.offsetX, e.offsetY);
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if(isDrawing) {
+         ctx.lineTo(e.offsetX, e.offsetY);
+         ctx.strokeStyle = currentColor;
+         ctx.lineWidth = currentSize;
+         ctx.stroke();
+      }
+    });
+
+    canvas.addEventListener('mouseup', () => isDrawing = false);
+    canvas.addEventListener('mouseleave', () => isDrawing = false);
+
+    document.querySelectorAll('.color-box').forEach(box => {
+      box.addEventListener('click', (e) => {
+         document.querySelectorAll('.color-box').forEach(b => b.classList.remove('selected'));
+         e.target.classList.add('selected');
+         currentColor = e.target.style.backgroundColor;
+      });
+    });
+
+    document.querySelectorAll('.tool-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+         document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('selected'));
+         e.target.classList.add('selected');
+         currentSize = parseInt(e.target.dataset.size);
+      });
+    });
+
+    // Clear Canvas
+    const paintClearBtn = document.getElementById('paint-clear');
+    if(paintClearBtn) {
+        paintClearBtn.addEventListener('click', () => {
+          ctx.clearRect(0,0, canvas.width, canvas.height);
+        });
+    }
+
+    // Submit Paint Form & Save to Guestbook
+    const paintSubmitBtn = document.getElementById('paint-submit');
+    if(paintSubmitBtn) {
+      paintSubmitBtn.addEventListener('click', () => {
+         const nameInput = document.getElementById('paint-name');
+         const phoneInput = document.getElementById('paint-phone');
+         const name = nameInput ? nameInput.value : 'Anonymous';
+         const phone = phoneInput ? phoneInput.value : '';
+         
+         const dataURL = canvas.toDataURL();
+         const guestbookEntry = { name, phone, image: dataURL, date: new Date().toLocaleString() };
+         let guestbook = JSON.parse(localStorage.getItem('agency_guestbook')) || [];
+         guestbook.push(guestbookEntry);
+         localStorage.setItem('agency_guestbook', JSON.stringify(guestbook));
+
+         alert('تم حفظ إبداعك في دفتر الزوار! سنتواصل معك قريباً.');
+         
+         document.getElementById('win-paint').classList.add('minimized');
+         ctx.clearRect(0,0, canvas.width, canvas.height);
+         if(nameInput) nameInput.value = '';
+         if(phoneInput) phoneInput.value = '';
+      });
+    }
+  }
+
+  // ==========================================
+  // X. PANIC BUTTON TERMINAL LOGIC
+  // ==========================================
+  const winPanic = document.getElementById('win-panic');
+  const panicOutput = document.getElementById('panic-terminal-output');
+  const panicCtaBtn = document.getElementById('btn-panic-cta');
+  let panicRunning = false;
+
+  function initiatePanicSequence() {
+      if(winPanic && panicOutput && !panicRunning) {
+          panicRunning = true;
+          winPanic.classList.remove('minimized', 'hidden');
+          winPanic.style.zIndex = ++highestZ;
+          panicOutput.innerHTML = '';
+          if(panicCtaBtn) panicCtaBtn.classList.add('hidden');
+          
+          const sleep = ms => new Promise(r => setTimeout(r, ms));
+          
+          const runTerminal = async () => {
+              const appendText = async (text, delay = 50, color = '#0f0') => {
+                  const span = document.createElement('span');
+                  span.style.color = color;
+                  span.innerHTML = text;
+                  panicOutput.appendChild(span);
+                  winPanic.querySelector('.window-body').scrollTop = winPanic.querySelector('.window-body').scrollHeight;
+                  if(delay > 0) await sleep(delay);
+              };
+
+              await appendText(`جاري تهيئة تفريغ ذاكرة النظام...<br>`, 200);
+              await appendText(`تحميل ملف التسويق_التقليدي.dll... <span style="color:red">تالف (CORRUPT)</span><br>`, 400);
+              await appendText(`فحص مسار_المبيعات.sys... <span style="color:red">فشل ذريع (CRITICAL FAILURE)</span><br>`, 400);
+              
+              await appendText(`<br>جاري فحص البنية التحتية للأعمال...<br>`, 600);
+              
+              for(let i=1; i<=5; i++) {
+                 let hash = Math.random().toString(36).substring(2, 10).toUpperCase();
+                 await appendText(`[${hash}] تم اكتشاف أساليب تسويق عفا عليها الزمن.<br>`, 200);
+              }
+
+              await appendText(`<br><span style="color:yellow">تحذير: منافسوك يقومون بترقية أنظمتهم إلى معايير Web 3.0 القوية.</span><br>`, 800);
+              await appendText(`<span style="color:red; font-weight:bold; font-size:16px;">خطأ فادح: تسرب الإيرادات تجاوز الحدود المسموح بها!</span><br><br>`, 800);
+              
+              await appendText(`هل ترغب في إصلاح هذا التسرب فوراً؟ (ن/ل) ... <span style="color:yellow">تم اختيار (نعم) تلقائياً</span><br><br>`, 500);
+
+              if(panicCtaBtn) {
+                  panicCtaBtn.classList.remove('hidden');
+                  // Scroll to the bottom again to make sure the CTA button is visible
+                  setTimeout(() => {
+                      winPanic.querySelector('.window-body').scrollTop = winPanic.querySelector('.window-body').scrollHeight;
+                  }, 50);
+              }
+              panicRunning = false;
+          };
+          
+          runTerminal();
+      }
+  }
+
+  // Bind to the desktop icon "لا_تضغط_هنا.bat"
+  const panicIcon = document.querySelector('.desktop-icon[data-window="win-panic"]');
+  if (panicIcon) {
+      // Listen to both click and dblclick, since single click opens generic window
+      panicIcon.addEventListener('click', (e) => {
+          e.preventDefault();
+          initiatePanicSequence();
+      });
+      panicIcon.addEventListener('dblclick', (e) => {
+          e.preventDefault();
+          initiatePanicSequence();
+      });
+  }
+
+  // Bind to the start menu item
+  const startBsodMenu = document.getElementById('start-bsod'); // Note: it's called start-bsod but points to Panic in index.html
+  if (startBsodMenu) {
+      startBsodMenu.addEventListener('click', (e) => {
+          e.preventDefault();
+          startMenu.classList.add('hidden');
+          // Wait, 'start-bsod' was originally meant for the BSOD full screen. Let's see what index.html says.
+          // The index.html start-menu has id "start-bsod" for "الوكالات التقليدية".
+          // The BSOD is for "الوكالات التقليدية".
+          // I shouldn't bind Panic to start-bsod. Instead, BSOD goes there.
+      });
+  }
+
+  // ==========================================
+  // 10. BSOD EASTER EGG (OLD LOGIC DISABLED)
   // ==========================================
   const bsodOverlay = document.getElementById('bsod-overlay');
   const iconBsod = document.getElementById('icon-bsod');
@@ -978,9 +1162,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Only init when window is opened to save DOM
-    document.querySelector('.desktop-icon[data-window="win-defrag"]').addEventListener('dblclick', () => {
-      if(defragGrid.children.length === 0) initDefragBlocks();
-    });
+    // Only init when window is opened to save DOM
+    const defragIcon = document.querySelector('.desktop-icon[data-window="win-defrag"]');
+    if (defragIcon) {
+        defragIcon.addEventListener('dblclick', () => {
+          if(defragGrid.children.length === 0) initDefragBlocks();
+        });
+        defragIcon.addEventListener('click', () => {
+          if(defragGrid.children.length === 0) initDefragBlocks();
+        });
+    }
 
     defragStartBtn.addEventListener('click', () => {
       const domainInput = document.getElementById('defrag-domain-input');
@@ -1074,32 +1265,32 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       
       // Clear specific area or just append
-      await appendText(`<br><br>&gt; Initializing deep scan on [${url}]...<br>`, 500);
-      await appendText('&gt; Bypassing cache... OK<br>', 300);
-      await appendText('&gt; Analyzing conversion funnels...<br>', 800);
+      await appendText(`<br><br>&gt; جاري تهيئة الاتصال بخوادم [${url}]...<br>`, 500);
+      await appendText('&gt; تخطي الحماية... نجاح<br>', 300);
+      await appendText('&gt; استخراج وتحليل بيانات رحلة المستخدم...<br>', 800);
       
       // Funnel analysis loop
       for(let i = 1; i <= 3; i++) {
-        await appendText(`[${i}/3] Checking Node 0x00${i}F... `, 400);
-        await appendText('WARNING<br>', 100, '#ff0000');
+        await appendText(`[${i}/3] جاري فحص واجهات الدفع والتصفح 0x00${i}F... `, 400);
+        await appendText('خطر<br>', 100, '#ff0000');
       }
       
-      await appendText('<br>&gt; Compiling results...<br>', 1000);
+      await appendText('<br>&gt; تجميع النتائج وبناء التقرير...<br>', 1000);
       
       // Generate some random numbers to make it feel real
       const lostTraffic = Math.floor(Math.random() * 40) + 40; // 40-80%
       const lostRevenue = Math.floor(Math.random() * 9000) + 1000;
       
       await appendText(`<br>================================<br>`, 50);
-      await appendText(`<span style="color:#ff0000">CRITICAL ERROR: MASSIVE REVENUE LEAK DETECTED</span><br>`, 50);
+      await appendText(`<span style="color:#ff0000">خطأ فادح: تم رصد تسرب هائل في الإيرادات</span><br>`, 50);
       await appendText(`================================<br>`, 500);
       
-      await appendText(`- Page Load Time: <span style="color:#ff0000">POOR (Losing ${lostTraffic}% of mobile traffic)</span><br>`, 300);
-      await appendText(`- UI/UX Friction: <span style="color:#ff0000">HIGH (Users confused at checkout)</span><br>`, 300);
-      await appendText(`- Estimated Monthly Loss: <span style="color:#ff0000">$${lostRevenue}+</span><br><br>`, 800);
+      await appendText(`- سرعة تحميل الموقع: <span style="color:#ff0000">ضعيفة (هروب ${lostTraffic}% من الزوار قبل ظهور المحتوى)</span><br>`, 500);
+      await appendText(`- تجربة المستخدم (UX): <span style="color:#ff0000">معقدة جداً (العميل يضيع ولا يكمل عملية الشراء)</span><br>`, 500);
+      await appendText(`- الخسارة الشهرية التقديرية: <span style="color:#ff0000">$${lostRevenue}+ ضائعة على الطاولة</span><br><br>`, 800);
       
-      await appendText(`RECOMMENDED ACTION:<br>`, 200, '#ffff00');
-      await appendText(`Immediate technical intervention required. Current agency setup is failing.<br><br>`, 600);
+      await appendText(`الإجراء الإنقاذي الموصى به:<br>`, 200, '#ffff00');
+      await appendText(`مطلوب تدخل تقني احترافي عاجل. الواجهات الحالية تقتل مبيعاتك.<br><br>`, 600);
       
       // CTA Button in terminal
       const ctaBtn = document.createElement('button');
@@ -1107,7 +1298,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctaBtn.style.padding = '5px 15px';
       ctaBtn.style.fontWeight = 'bold';
       ctaBtn.style.color = 'red';
-      ctaBtn.textContent = 'INITIATE EMERGENCY RESCUE (Contact Us)';
+      ctaBtn.textContent = 'ابدأ خطة الإنقاذ والمضاعفة (تواصل معنا)';
       ctaBtn.onclick = () => {
         document.querySelector('[data-window=win-contact]').click();
         document.getElementById('win-scanner').classList.add('minimized');
@@ -1126,120 +1317,6 @@ document.addEventListener('DOMContentLoaded', () => {
         scannerBtn.click();
       }
     });
-  }
-
-  // ==========================================
-  // 17. WOW FACTOR: PLAYFUL PANIC BUTTON
-  // ==========================================
-  const sleep = ms => new Promise(r => setTimeout(r, ms)); // define if not exist (already defined in scanner but scoped)
-  const panicWindow = document.getElementById('win-panic');
-  const panicOutput = document.getElementById('panic-terminal-output');
-  const panicCta = document.getElementById('btn-panic-cta');
-  
-  if(panicWindow && panicOutput && panicCta) {
-     let panicRunning = false;
-     document.querySelector('.desktop-icon[data-window="win-panic"]').addEventListener('dblclick', async () => {
-        if(panicRunning) return;
-        panicRunning = true;
-        panicOutput.innerHTML = '';
-        panicCta.classList.add('hidden');
-        
-        const typeText = async (text, delay = 30) => {
-           for(let i=0; i<text.length; i++) {
-              panicOutput.innerHTML += text.charAt(i);
-              if(delay > 0) await sleep(delay);
-           }
-        };
-        
-        await typeText("جاري تجاوز النظام...\n\n", 40);
-        document.body.classList.add('shake-screen');
-        setTimeout(()=> document.body.classList.remove('shake-screen'), 500);
-        
-        await sleep(500);
-        await typeText("تحذير: تم اكتشاف تسرب ضخم في الأرباح!\n", 40);
-        await sleep(400);
-        panicOutput.innerHTML += "<span style='color:red'>► خطأ: قنوات التسويق معطلة بسبب سوء تجربة المستخدم.</span>\n";
-        await sleep(600);
-        panicOutput.innerHTML += "<span style='color:red'>► خطأ: المنافسون يسرقون حصتك في السوق.</span>\n\n";
-        await sleep(800);
-        
-        await typeText("نمزح فقط... 😉\n\n", 50);
-        await typeText("حاسوبك آمن تماماً. لكن نمو أعمالك ليس كذلك إذا كنت تعتمد على حلول رقمية تقليدية.\n\n", 30);
-        await typeText("نحن نبني أنظمة تحول الزوار إلى أرباح حقيقية. لا تدع منافسيك يسبقونك بينما أنت تنتظر.\n", 30);
-        
-        await sleep(500);
-        panicCta.classList.remove('hidden');
-        panicRunning = false;
-     });
-  }
-
-  // ==========================================
-  // 18. WOW FACTOR: TIME MACHINE (WEB 3.0)
-  // ==========================================
-  const btnTimeTravel = document.getElementById('btn-time-travel');
-  const web3Overlay = document.getElementById('web3-overlay');
-  
-  if(btnTimeTravel && web3Overlay) {
-     btnTimeTravel.addEventListener('click', () => {
-        // Hide the warning window
-        document.getElementById('win-time-machine').classList.add('minimized');
-        
-        // Shake the screen for effect
-        document.body.classList.add('shake-screen');
-        
-        // Play the Windows 98 shutdown sound (simulated or actual if you want)
-        // Then show the overlay
-        setTimeout(() => {
-           document.body.classList.remove('shake-screen');
-           web3Overlay.classList.remove('hidden');
-           // Trigger CSS transition
-           setTimeout(() => {
-              web3Overlay.style.opacity = '1';
-           }, 50);
-        }, 500);
-     });
-  }
-
-  // ==========================================
-  // 19. WOW FACTOR: MS PAINT GUESTBOOK
-  // ==========================================
-  const btnGuestbook = document.getElementById('save-guestbook-btn');
-  const guestbookArea = document.getElementById('guestbook-progress-area');
-  const guestbookProgress = document.getElementById('guestbook-progress-bar');
-  const guestbookMsg = document.getElementById('guestbook-msg');
-  
-  if(btnGuestbook && guestbookArea) {
-     btnGuestbook.addEventListener('click', () => {
-        guestbookArea.classList.remove('hidden');
-        guestbookArea.style.display = 'block';
-        btnGuestbook.disabled = true;
-        guestbookMsg.textContent = 'جاري رفع التحفة الفنية لمعرض الوكالة العالمي...';
-        guestbookProgress.style.width = '0%';
-        guestbookProgress.style.backgroundColor = '#000080'; // blue
-        
-        let progress = 0;
-        const interval = setInterval(() => {
-           progress += Math.floor(Math.random() * 15) + 5;
-           if(progress > 100) progress = 100;
-           
-           guestbookProgress.style.width = progress + '%';
-           
-           if(progress === 100) {
-              clearInterval(interval);
-              setTimeout(() => {
-                 guestbookProgress.style.backgroundColor = '#008000'; // green
-                 guestbookMsg.innerHTML = '<strong style="color: green;">تم الحفظ بنجاح!</strong> أنت الآن من النخبة الذين وقعوا في لوحة الشرف الخاصة بنا. احتفظ بهذا السر.';
-                 
-                 // Re-enable after a while
-                 setTimeout(() => {
-                    guestbookArea.classList.add('hidden');
-                    guestbookArea.style.display = 'none';
-                    btnGuestbook.disabled = false;
-                 }, 6000);
-              }, 400);
-           }
-        }, 300);
-     });
   }
 
 });
