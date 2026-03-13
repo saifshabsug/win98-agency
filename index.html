@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Digital Partner | IT Solutions</title>
+  <meta name="description" content="We build systems that increase your profits. Software development, apps, and websites without the headache.">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/win98.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Use a clean readable font for business clients -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="desktop-os">
+
+  <!-- ==============================================
+       DESKTOP ENVIRONMENT  
+       ============================================== -->
+  <main class="desktop-area" id="desktop">
+
+    <!-- DESKTOP ICONS (Navigation) -->
+    <div class="desktop-icons">
+      <div class="desktop-icon" data-window="win-welcome">
+        <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="Welcome">
+        <span>مرحباً بك</span>
+      </div>
+      <div class="desktop-icon" data-window="win-why-us">
+        <img src="https://win98icons.alexmeub.com/icons/png/settings_gear-0.png" alt="Why Us">
+        <span>القيمة المضافة</span>
+      </div>
+      <div class="desktop-icon" data-window="win-services">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="Services">
+        <span>خدماتنا</span>
+      </div>
+      <div class="desktop-icon" data-window="win-portfolio">
+        <img src="https://win98icons.alexmeub.com/icons/png/paint_file-1.png" alt="Portfolio">
+        <span>معرض الأعمال</span>
+      </div>
+      <div class="desktop-icon" data-window="win-contact">
+        <img src="https://win98icons.alexmeub.com/icons/png/envelope_closed-0.png" alt="Contact">
+        <span>تواصل معنا</span>
+      </div>
+      <div class="desktop-icon" data-window="win-minesweeper">
+        <img src="https://win98icons.alexmeub.com/icons/png/game_mine_1-0.png" onerror="this.src='https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png'" alt="Minesweeper">
+        <span>لعبة الألغام</span>
+      </div>
+      <div class="desktop-icon" data-window="win-media">
+        <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-3.png" alt="Media Player">
+        <span>مشغل الموسيقى</span>
+      </div>
+      <div class="desktop-icon" id="icon-bsod">
+        <img src="https://win98icons.alexmeub.com/icons/png/network_normal_two_pcs-2.png" alt="Traditional Agencies">
+        <span>الوكالات التقليدية</span>
+      </div>
+      <div class="desktop-icon" id="icon-vip-vault" data-window="win-vip-vault">
+        <img src="https://win98icons.alexmeub.com/icons/png/key_padlock-0.png" alt="VIP Client Vault">
+        <span>عملاء_النخبة.zip</span>
+      </div>
+      <div class="desktop-icon" data-window="win-recycle-bin">
+        <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_full-4.png" alt="Lost Revenue Bin">
+        <span>الأرباح_الضائعة</span>
+      </div>
+      <div class="desktop-icon" data-window="win-defrag">
+        <img src="https://win98icons.alexmeub.com/icons/png/defragment-0.png" alt="Business Defragmenter">
+        <span>تحسين_أعمالك.exe</span>
+      </div>
+      <div class="desktop-icon" data-window="win-scanner">
+        <img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png" alt="Site Scanner">
+        <span>فاحص_المواقع.bat</span>
+      </div>
+      <div class="desktop-icon" data-window="win-time-machine">
+        <img src="https://win98icons.alexmeub.com/icons/png/cd_drive-0.png" alt="آلة الزمن">
+        <span>آلة_الزمن.exe</span>
+      </div>
+      <div class="desktop-icon" data-window="win-panic">
+        <img src="https://win98icons.alexmeub.com/icons/png/msg_error-0.png" alt="ممنوع الاقتراب">
+        <span>لا_تضغط_هنا.bat</span>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         WINDOWS (Apps) 
+         ============================================== -->
+
+    <!-- 1. WELCOME WINDOW -->
+    <section class="window draggable" id="win-welcome" style="top: 10%; left: 50%; transform: translateX(-50%); z-index: 10;">
+      <div class="window-titlebar drag-handle">
+        <div class="window-titlebar-text">
+          <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" width="16" class="title-icon"> مرحباً بك في شريكك التقني
+        </div>
+        <div class="window-titlebar-controls">
+          <button class="win-btn titlebar-btn btn-minimize">_</button>
+          <button class="win-btn titlebar-btn btn-maximize">◻</button>
+          <button class="win-btn titlebar-btn btn-close">X</button>
+        </div>
+      </div>
+      <div class="window-body padding-large text-center welcome-content">
+        <h2>نحن لا نكتب أكواداً فقط،<br> نحن نبني أنظمة تزيد من أرباحك.</h2>
+        <p class="mt-3">حول فكرة مشروعك إلى واقع تقني بأعلى المعايير، بدون صداع تقني أو تأخير في المواعيد المعقدة. أنت أدر تجارتك، ودع لنا إدارتها الرقمية.</p>
+        <div class="mt-4 flex-center gap-2">
+          <button class="win-btn primary-btn" onclick="document.querySelector('[data-window=win-services]').click()">استكشف خدماتنا</button>
+          <button class="win-btn" onclick="document.querySelector('[data-window=win-contact]').click()">احجز استشارة مجانية</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. WHY US (Value Proposition) WINDOW -->
+    <section class="window draggable minimized" id="win-why-us" style="top: 15%; left: 20%; z-index: 5;">
+      <div class="window-titlebar drag-handle">
+        <div class="window-titlebar-text">
+          <img src="https://win98icons.alexmeub.com/icons/png/settings_gear-0.png" width="16" class="title-icon"> خصائص النظام - لماذا نحن؟
+        </div>
+        <div class="window-titlebar-controls">
+          <button class="win-btn titlebar-btn btn-minimize">_</button>
+          <button class="win-btn titlebar-btn btn-close">X</button>
+        </div>
+      </div>
+      <div class="explorer-toolbar tabs-like">
+        <span class="active-tab">الأداء (Performance)</span> <span>الموثوقية (Reliability)</span>
+      </div>
+      <div class="window-body">
+        <div class="feature-box">
+          <img src="https://win98icons.alexmeub.com/icons/png/time_and_date-1.png" width="32" alt="Time">
+          <div>
+            <strong>تسليم في الموعد (On-Time Delivery)</strong>
+            <p>وقتك هو مالك. نلتزم بجداول زمنية صارمة لتسليم مشروعك في الوقت المحدد بلا تأخير.</p>
+          </div>
+        </div>
+        <div class="feature-box mt-2">
+          <img src="https://win98icons.alexmeub.com/icons/png/certificate-0.png" width="32" alt="Security">
+          <div>
+            <strong>بدون صداع تقني (Hassle-Free)</strong>
+            <p>لا تحتاج لأن تكون مبرمجاً لتفهمنا. نتحدث بلغة الأعمال والأرباح، ونتكفل نحن بالتعقيد البرمجي بالكامل الموثوق.</p>
+          </div>
+        </div>
+        <div class="feature-box mt-2">
+          <img src="https://win98icons.alexmeub.com/icons/png/paint_file-1.png" width="32" alt="Growth">
+          <div>
+            <strong>جودة تزيد المبيعات (ROI Focused)</strong>
+            <p>مواقع وتطبيقات سريعة جداً ومريحة للعين، مصممة خصيصاً لتحويل زوارك إلى مشترين فعليين.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SERVICES WINDOW -->
+    <section class="window draggable minimized explorer-style" id="win-services" style="top: 20%; left: 40%; width: 500px; z-index: 6;">
+      <div class="window-titlebar drag-handle">
+        <div class="window-titlebar-text">
+          <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" width="16" class="title-icon"> خدماتنا (Solutions)
+        </div>
+        <div class="window-titlebar-controls">
+          <button class="win-btn titlebar-btn btn-minimize">_</button>
+          <button class="win-btn titlebar-btn btn-maximize">◻</button>
+          <button class="win-btn titlebar-btn btn-close">X</button>
+        </div>
+      </div>
+      <div class="explorer-toolbar">
+        <span>ملف</span> <span>تحرير</span> <span>عرض</span> <span>مساعدة</span>
+      </div>
+      <div class="window-body bg-white padding-none">
+        <div class="services-folder-view">
+          <!-- Web -->
+          <div class="s-folder" title="مواقع تتصدر نتائج البحث وتجذب العملاء" data-service="web">
+            <img src="https://win98icons.alexmeub.com/icons/png/world-1.png" alt="Web">
+            <span>تطوير المواقع</span>
+          </div>
+          <!-- Mobile -->
+          <div class="s-folder" title="تطبيقات مريحة تضع متجرك في جيب كل عميل" data-service="mobile">
+            <img src="https://win98icons.alexmeub.com/icons/png/modem-0.png" alt="Mobile">
+            <span>تطبيقات الجوال</span>
+          </div>
+          <!-- Cloud/ERP -->
+          <div class="s-folder" title="لوحات تحكم قوية تدير شركتك بالكامل" data-service="systems">
+            <img src="https://win98icons.alexmeub.com/icons/png/chm-0.png" alt="Systems">
+            <span>الأنظمة السحابية</span>
+          </div>
+          <!-- UI/UX -->
+          <div class="s-folder" title="تصاميم تجعل استخدام تطبيقك تجربة ممتعة" data-service="uiux">
+            <img src="https://win98icons.alexmeub.com/icons/png/paint_file-1.png" alt="UIUX">
+            <span>تصميم واجهات (UI/UX)</span>
+          </div>
+        </div>
+        <div class="status-bar">
+          <span id="service-status">حدد خدمة لتتعرف على قيمتها لمشروعك.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PORTFOLIO WINDOW -->
+    <section class="window draggable minimized" id="win-portfolio" style="top: 5%; right: 10%; width: 600px; z-index: 4;">
+      <div class="window-titlebar drag-handle">
+        <div class="window-titlebar-text">
+          <img src="https://win98icons.alexmeub.com/icons/png/paint_file-1.png" width="16" class="title-icon"> معرض الأعمال - Imaging for Windows
+        </div>
+        <div class="window-titlebar-controls">
+          <button class="win-btn titlebar-btn btn-minimize">_</button>
+          <button class="win-btn titlebar-btn btn-maximize">◻</button>
+          <button class="win-btn titlebar-btn btn-close">X</button>
+        </div>
+      </div>
+      <div class="window-body image-viewer">
+        <div class="viewer-controls">
+          <button class="win-btn" id="prev-img">السابق</button>
+          <span id="img-counter">1 من 3</span>
+          <button class="win-btn" id="next-img">التالي</button>
+        </div>
+        <div class="viewer-display win-inset">
+          <!-- The Contrast: High Quality Modern Output -->
+          <img id="portfolio-img" src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=600" alt="معرض الأعمال" class="portfolio-image">
+        </div>
+        <div class="status-bar mt-2">
+          <span id="portfolio-title">تطبيق متجر إلكتروني متكامل - زيادة 40% في المبيعات وتجربة مستخدم لا مثيل لها</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CONTACT WINDOW (MS Paint Style) -->
+    <section class="window draggable minimized" id="win-contact" style="top: 20%; left: 20%; width: 550px; z-index: 7;">
+      <div class="window-titlebar drag-handle">
+        <div class="window-titlebar-text">
+          <img src="https://win98icons.alexmeub.com/icons/png/paint_file-1.png" width="16" class="title-icon"> تواصل معنا - Paint
+        </div>
+        <div class="window-titlebar-controls">
+          <button class="win-btn titlebar-btn btn-minimize">_</button>
+          <button class="win-btn titlebar-btn btn-maximize">◻</button>
+          <button class="win-btn titlebar-btn btn-close">X</button>
+        </div>
+      </div>
+      <!-- Paint Menus -->
+      <div class="explorer-toolbar" style="border-bottom:none; padding-bottom: 2px;">
+        <span>File</span> <span>Edit</span> <span>View</span> <span>Image</span> <span>Colors</span> <span>Help</span>
+      </div>
+      
+      <div class="window-body padding-none" style="display: flex; flex-direction: row; background: #c0c0c0; height: 380px;">
+        <!-- Left Toolbar -->
+        <div style="width: 55px; border-right: 1px solid #808080; border-top: 1px solid #dfdfdf; padding: 2px 4px; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 2px;">
+          <!-- Tool icons -->
+          <button class="win-btn active" style="width: 21px; height: 21px; padding: 0; display:flex; justify-content:center; align-items:center;"><img src="https://win98icons.alexmeub.com/icons/png/paint_file-1.png" width="14"></button>
+          <button class="win-btn" style="width: 21px; height: 21px; padding: 0; display:flex; justify-content:center; align-items:center;"><img src="https://win98icons.alexmeub.com/icons/png/document_empty-0.png" width="14"></button>
+          <button class="win-btn" style="width: 21px; height: 21px; padding: 0; display:flex; justify-content:center; align-items:center;"><span style="font-size:12px">A</span></button>
+          <button class="win-btn" style="width: 21px; height: 21px; padding: 0; display:flex; justify-content:center; align-items:center;"><span style="font-size:12px">/</span></button>
+          <button class="win-btn" style="width: 21px; height: 21px; padding: 0; display:flex; justify-content:center; align-items:center;"><div style="border: 1px solid #000; width:8px; height:8px"></div></button>
+          <button class="win-btn" style="width: 21px; height: 21px; padding: 0; display:flex; justify-content:center; align-items:center;"><div style="border: 1px solid #000; width:8px; height:8px; border-radius: 50%"></div></button>
+          
+          <!-- Selected tool options -->
+          <div class="win-border-sunken-deep" style="width: 44px; height: 60px; margin-top: 10px; display:flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 4px;">
+             <div style="border-bottom: 1px solid #000; width: 80%;"></div>
+             <div style="border-bottom: 2px solid #000; width: 80%;"></div>
+             <div style="border-bottom: 3px solid #000; width: 80%;"></div>
+          </div>
+        </div>
+        
+        <!-- Main Canvas Area (Contact Form) -->
+        <div style="flex: 1; padding: 10px; display: flex; flex-direction: column; overflow: auto; border: inset 2px #fff; background: #808080;">
+          <form class="ms-canvas" style="background: white; padding: 20px; flex: 1; display: flex; flex-direction: column; gap: 10px; cursor: crosshair; box-shadow: inset 1px 1px 0px #000;">
+             <h3 style="font-family: Arial, sans-serif; text-align: center; margin-bottom: 10px; color: #000;">ارسم فكرتك - تواصل معنا</h3>
+             
+             <div style="display:flex; gap: 10px;">
+               <input type="text" class="win-input" placeholder="الاسم الكريم" style="flex: 1; font-family: 'Comic Sans MS', cursive, sans-serif;">
+               <input type="email" class="win-input" placeholder="البريد الإلكتروني" style="flex: 1; font-family: 'Comic Sans MS', cursive, sans-serif;">
+             </div>
+             
+             <textarea class="win-input" placeholder="ارسم أو اكتب تفاصيل مشروعك هنا..." style="flex: 1; font-family: 'Comic Sans MS', cursive, sans-serif; resize: none;"></textarea>
+             
+             <div style="display:flex; justify-content: center; margin-top: 5px; gap: 10px;">
+               <button type="button" class="win-btn" style="font-weight: bold; font-family: Tahoma, sans-serif; padding: 4px 15px;" id="send-mail-btn">
+                 <img src="https://win98icons.alexmeub.com/icons/png/envelope_closed-0.png" width="16" style="vertical-align: middle; margin-left: 5px;">
+                 حفظ وإرسال
+               </button>
+               <button type="button" class="win-btn" style="font-weight: bold; font-family: Tahoma, sans-serif; padding: 4px 15px;" id="save-guestbook-btn">
+                 <img src="https://win98icons.alexmeub.com/icons/png/save-0.png" width="16" style="vertical-align: middle; margin-left: 5px;">
+                 توقيع لوحة الشرف
+               </button>
+             </div>
+             
+             <!-- Guestbook Progress Area -->
+             <div id="guestbook-progress-area" class="hidden" style="margin-top: 10px; background: #e0e0e0; border: 2px inset #fff; padding: 5px;">
+                <p id="guestbook-msg" style="font-size: 11px; margin-bottom: 5px;">جاري رفع التحفة الفنية لمعرض الوكالة العالمي...</p>
+                <div class="win-border-sunken" style="height: 15px; background: #fff;">
+                   <div id="guestbook-progress-bar" style="height: 100%; width: 0%; background: #000080;"></div>
+                </div>
+             </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Color Palette (Bottom) -->
+      <div style="height: 40px; border-top: 1px solid #dfdfdf; display: flex; align-items: center; padding: 4px; background: #c0c0c0;">
+        <div style="width: 32px; height: 32px; border: inset 2px #fff; margin-right: 10px; margin-left: 10px; background: white; position: relative;">
+           <div style="width: 14px; height: 14px; position: absolute; top: 12px; left: 12px; border: 1px solid #808080; background: white; z-index: 1;"></div>
+           <div style="width: 14px; height: 14px; position: absolute; top: 4px; left: 4px; border: 1px solid #808080; background: black; z-index: 2;"></div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; width: 170px; gap: 1px;">
+           <!-- row 1 -->
+           <div style="width: 16px; height: 16px; background: #000; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #808080; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #800000; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #808000; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #008000; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #008080; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #000080; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #800080; border: inset 1px #888;"></div>
+           <!-- row 2 -->
+           <div style="width: 16px; height: 16px; background: #fff; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #c0c0c0; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #ff0000; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #ffff00; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #00ff00; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #00ffff; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #0000ff; border: inset 1px #888;"></div>
+           <div style="width: 16px; height: 16px; background: #ff00ff; border: inset 1px #888;"></div>
+        </div>
+      </div>
+      <!-- Status bar -->
+      <div class="status-bar" style="display:flex; justify-content:space-between; border-top: 1px solid #dfdfdf; padding: 2px 6px; font-size: 11px; font-family: 'Tahoma', sans-serif;">
+        <span>For Help, click Help Topics on the Help Menu.</span>
+        <span>150, 150</span>
+      </div>
+    </section>
+
+    <!-- 6. INTERNET EXPLORER (Service Details) -->
+    <section class="window win-window draggable minimized" id="win-ie" style="top: 15%; left: 25%; width: 600px; z-index: 8;">
+      <div class="window-titlebar drag-handle" style="background: linear-gradient(90deg, #000080 0%, #1084d0 100%);">
+        <div class="window-titlebar-text">
+          <img src="https://win98icons.alexmeub.com/icons/png/msie1-0.png" width="16" class="title-icon"> <span id="ie-title">Microsoft Internet Explorer</span>
+        </div>
+        <div class="window-titlebar-controls">
+          <button class="win-btn titlebar-btn btn-minimize">_</button>
+          <button class="win-btn titlebar-btn btn-maximize">◻</button>
+          <button class="win-btn titlebar-btn btn-close">X</button>
+        </div>
+      </div>
+      <!-- IE Menus -->
+      <div class="explorer-toolbar" style="border-bottom:none; padding-bottom: 2px;">
+        <span>File</span> <span>Edit</span> <span>View</span> <span>Go</span> <span>Favorites</span> <span>Help</span>
+      </div>
+      <!-- IE Toolbar (Buttons) -->
+      <div class="explorer-toolbar" style="gap: 5px; border-bottom: none; border-top: 1px solid #dfdfdf; box-shadow: inset 0 1px 0 #fff; align-items: center;">
+        <button class="win-btn" style="padding: 2px; display:flex; flex-direction:column; align-items:center;">
+          <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" width="24" style="filter: grayscale(1);">
+          <span style="font-size:10px;">Back</span>
+        </button>
+        <button class="win-btn" style="padding: 2px; display:flex; flex-direction:column; align-items:center;">
+          <img src="https://win98icons.alexmeub.com/icons/png/directory_closed-4.png" width="24" style="filter: grayscale(1);">
+          <span style="font-size:10px;">Forward</span>
+        </button>
+        <div style="height: 35px; border-left: 2px groove #dfdfdf; margin: 0 5px;"></div>
+        <button class="win-btn" style="padding: 2px; display:flex; flex-direction:column; align-items:center;">
+          <img src="https://win98icons.alexmeub.com/icons/png/msie1-0.png" width="24">
+          <span style="font-size:10px;">Refresh</span>
+        </button>
+        <button class="win-btn" style="padding: 2px; display:flex; flex-direction:column; align-items:center;">
+          <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" width="24">
+          <span style="font-size:10px;">Home</span>
+        </button>
+      </div>
+      <!-- Address Bar -->
+      <div class="explorer-toolbar" style="border-top: 1px solid #dfdfdf; padding: 4px; box-shadow: inset 0 1px 0 #fff; align-items: center;">
+        <span style="color: #808080; font-family: sans-serif; font-size: 13px; margin-right: 5px;">Address</span>
+        <div class="win-border-sunken-deep" style="flex: 1; padding: 2px 5px; font-family: monospace; font-size: 13px; display: flex; align-items: center;">
+          <img src="https://win98icons.alexmeub.com/icons/png/msie1-0.png" width="16" style="margin-right: 5px;">
+          <span id="ie-address">http://www.youragency.com/services/web</span>
+        </div>
+      </div>
+      <!-- Page Content -->
+      <div class="window-body bg-white win-border-sunken-deep" style="height: 300px; overflow-y: scroll; padding: 20px;">
+        <div id="ie-content" style="font-family: 'Times New Roman', serif; direction: rtl; text-align: right;">
+          <!-- Fetched dynamically -->
+          <h1 style="color: blue; text-decoration: underline; font-size: 24px;">تفاصيل الخدمة</h1>
+          <p style="font-size: 16px; margin-top: 10px;">جاري التحميل...</p>
+        </div>
+      </div>
+      <div class="status-bar" style="display:flex; justify-content:space-between; border-top: 1px solid #dfdfdf; margin-top: 2px;">
+        <span>Done</span>
+        <span style="display:flex; align-items:center; gap:5px;"><img src="https://win98icons.alexmeub.com/icons/png/world-1.png" width="14"> Internet</span>
+      </div>
+    </section>
+
+    <!-- 7. MINESWEEPER (Game & Discount) -->
+    <section class="window win-window draggable minimized" id="win-minesweeper" style="top: 25%; left: 35%; width: auto; z-index: 9;">
+      <div class="window-titlebar drag-handle">
+        <div class="window-titlebar-text">
+          <img src="https://win98icons.alexmeub.com/icons/png/game_mine_1-0.png" onerror="this.src='https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png'" width="16" class="title-icon"> كاسحة الألغام للمحترفين
+        </div>
+        <div class="window-titlebar-controls">
+          <button class="win-btn titlebar-btn btn-minimize">_</button>
+          <button class="win-btn titlebar-btn btn-close">X</button>
+        </div>
+      </div>
+      <div class="explorer-toolbar" style="border-bottom:none; padding-bottom: 2px;">
+        <span id="ms-start-btn" style="cursor: pointer;">بدء لعبة جديدة</span> <span>عن اللعبة</span>
+      </div>
+      <div class="window-body bg-light" style="padding: 10px; display: flex; flex-direction: column; align-items: center;">
+        <div style="margin-bottom: 10px; font-weight: bold; color: #000080; text-align: center;">
+          العب واربح استشارة مجانية وخصم خاص على مشروعك!
+        </div>
+        <div style="background: #bdbdbd; border: 2px solid; border-color: #808080 #fff #fff #808080; padding: 6px; width: 100%;">
+          
+          <!-- Top Info Bar -->
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px; border: 2px solid; border-color: #808080 #fff #fff #808080; padding: 4px; background: #bdbdbd;">
+            <div id="ms-flags" class="ms-lcd text-danger" style="background: black; color: red; font-family: monospace; font-size: 24px; padding: 0 4px; box-shadow: inset 1px 1px 2px #000;">10</div>
+            <button class="win-btn" id="ms-face" style="width: 32px; height: 32px; font-size: 16px; display:flex; justify-content:center; align-items:center;">🙂</button>
+            <div id="ms-timer" class="ms-lcd text-danger" style="background: black; color: red; font-family: monospace; font-size: 24px; padding: 0 4px; box-shadow: inset 1px 1px 2px #000;">000</div>
+          </div>
+          
+          <!-- Game Grid -->
+          <div id="ms-grid" style="border: 3px solid; border-color: #808080 #fff #fff #808080; display: grid; grid-template-columns: repeat(8, 20px); grid-template-rows: repeat(8, 20px); background: #bdbdbd;">
+            <!-- Cells generated by JS -->
+          </div>
+          
+        </div>
+        <div id="ms-reward-msg" style="display:none; color: green; font-weight: bold; margin-top: 10px; text-align: center; max-width: 200px;">
+          تهانينا! لقد ربحت استشارة مجانية وخصم خاص! <br>
+          <button class="win-btn mt-2" onclick="document.querySelector('[data-window=win-contact]').click()">احصل على الهدية الآن</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. WINAMP MEDIA PLAYER -->
+    <section class="window win-window draggable minimized" id="win-media" style="top: 60%; left: 10%; width: 280px; z-index: 9;">
+      <div class="window-titlebar drag-handle">
+        <div class="window-titlebar-text">
+          <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-3.png" width="16" class="title-icon"> Winamp (Lofi Beats)
+        </div>
+        <div class="window-titlebar-controls">
+          <button class="win-btn titlebar-btn btn-minimize">_</button>
+          <button class="win-btn titlebar-btn btn-close">X</button>
+        </div>
+      </div>
+      <div class="window-body" style="background: #2a2a2a; padding: 10px; display: flex; flex-direction: column; align-items: center; border: inset 2px #fff;">
+        <!-- LCD Screen -->
+        <div class="winamp-lcd" style="background: #000; color: #0f0; border: inset 2px #888; width: 100%; padding: 5px; font-family: monospace; font-size: 14px; text-align: center; margin-bottom: 10px; overflow: hidden; white-space: nowrap;">
+          <marquee scrollamount="3">Lofi Chill Beats to Work/Study to - Playing...</marquee>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 10px;">
+          <span style="color: #0f0; font-family: monospace; font-size: 12px;" id="audio-time">00:00</span>
+          <span style="color: #0f0; font-family: monospace; font-size: 12px;">KBPS: 128</span>
+        </div>
+
+        <!-- Controls -->
+        <div class="winamp-controls" style="display: flex; gap: 5px; margin-bottom: 10px;">
+          <button class="win-btn winamp-btn" id="wa-prev" style="font-weight: bold;">|&#171;</button>
+          <button class="win-btn winamp-btn" id="wa-play" style="font-weight: bold;">&#9658;</button>
+          <button class="win-btn winamp-btn" id="wa-pause" style="font-weight: bold;">&#10074;&#10074;</button>
+          <button class="win-btn winamp-btn" id="wa-stop" style="font-weight: bold;">&#9632;</button>
+          <button class="win-btn winamp-btn" id="wa-next" style="font-weight: bold;">&#187;|</button>
+        </div>
+
+        <!-- Volume -->
+        <div style="display: flex; align-items: center; width: 100%; gap: 5px;">
+          <span style="color: #aaa; font-size: 10px;">VOL</span>
+          <input type="range" id="wa-volume" min="0" max="1" step="0.1" value="0.5" style="flex: 1; accent-color: #0f0;">
+        </div>
+        
+        <!-- Hidden Audio Element -->
+        <!-- Source: Free Lofi stream or sample URL; replacing with a standard lofi track or placeholder. -->
+        <audio id="winamp-audio" loop>
+          <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </section>
+
+    <!-- 9. BSOD OVERLAY -->
+    <div id="bsod-overlay" style="position: fixed; inset: 0; background: #0000AA; color: #fff; font-family: 'Courier New', Courier, monospace; font-size: 18px; padding: 50px; z-index: 100000; direction: rtl; text-align: right; display: none; flex-direction: column; justify-content: center; align-items: center;">
+      <div style="max-width: 800px;">
+        <div style="background: #fff; color: #0000AA; display: inline-block; padding: 2px 8px; font-weight: bold; margin-bottom: 30px;">Windows</div>
+        <p style="margin-bottom: 20px;">حدث خطأ فادح 0E في الذاكرة 0028:C0011E36 ضمن الوكالة_التقليدية (01).</p>
+        <p style="margin-bottom: 20px;">لقد تسبب النظام الحالي في استثناء "تأخير في التسليم ومبالغة في الأسعار".</p>
+        <p style="margin-bottom: 20px;">* إذا كانت هذه هي المرة الأولى التي ترى فيها شاشة الخطأ هذه،<br> &nbsp;&nbsp;فتوقف عن إهدار وقتك وميزانيتك.</p>
+        <p style="margin-bottom: 20px;">* إذا تكرر ظهور هذه الشاشة، اتبع الخطوات التالية:<br> &nbsp;&nbsp;1. قم بإلغاء العقد مع الوكالة التقليدية.<br> &nbsp;&nbsp;2. انتقل إلى شريك تقني موثوق يلتزم بالمواعيد ويركز على أرباحك.</p>
+        <p style="text-align: center; margin-top: 50px;">اضغط على أي مفتاح للتواصل مع فريق الخبراء المحترفين <span style="animation: blink 1s infinite;">_</span></p>
+      </div>
+    </div>
+
+  </main> <!-- /desktop -->
+
+  <!-- 10. VIP SECRET VAULT -->
+  <section class="window draggable minimized" id="win-vip-vault" style="top: 25%; left: 35%; width: 400px; z-index: 10;">
+    <div class="window-titlebar drag-handle">
+      <div class="window-titlebar-text">
+        <img src="https://win98icons.alexmeub.com/icons/png/security_key-0.png" width="16" class="title-icon"> Security Verification
+      </div>
+      <div class="window-titlebar-controls">
+        <button class="win-btn titlebar-btn btn-close">X</button>
+      </div>
+    </div>
+    <div class="window-body" style="text-align: center; padding: 20px;">
+      <img src="https://win98icons.alexmeub.com/icons/png/key_padlock-0.png" width="48" style="margin-bottom: 15px;">
+      <h4 style="margin-bottom: 10px; font-family: Tahoma, sans-serif;">وصول غير مصرح به</h4>
+      <p style="margin-bottom: 15px; font-size: 12px; line-height: 1.5;">هذا المجلد يحتوي على دراسات حالة وأسرار نمو لعملائنا من النخبة. الرجاء إدخال كلمة المرور للمتابعة. (تلميح: جرب كلمة <b>VIP</b>)</p>
+      
+      <div style="display: flex; gap: 5px; justify-content: center; margin-bottom: 15px;">
+         <span style="font-size: 13px; line-height: 24px;">كلمة المرور:</span>
+         <input type="password" id="vip-password" class="win-input" style="width: 150px;">
+      </div>
+      
+      <button class="win-btn" id="vip-submit-btn" style="padding: 4px 20px; font-weight: bold;">دخول (Enter)</button>
+      <p id="vip-error-msg" style="color: red; font-size: 11px; margin-top: 10px; display: none;">كلمة المرور غير صحيحة.</p>
+    </div>
+  </section>
+
+  <!-- 10.1 VIP VAULT CONTENT (Hidden initially) -->
+  <section class="window draggable minimized" id="win-vip-content" style="top: 15%; left: 15%; width: 650px; height: 450px; z-index: 11;">
+    <div class="window-titlebar drag-handle">
+      <div class="window-titlebar-text">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" width="16" class="title-icon"> عملاء_النخبة.zip
+      </div>
+      <div class="window-titlebar-controls">
+        <button class="win-btn titlebar-btn btn-minimize">_</button>
+        <button class="win-btn titlebar-btn btn-maximize">◻</button>
+        <button class="win-btn titlebar-btn btn-close">X</button>
+      </div>
+    </div>
+    <div class="explorer-toolbar" style="border-bottom:none; padding-bottom: 2px;">
+      <span>File</span> <span>Edit</span> <span>View</span> <span>Favorites</span> <span>Help</span>
+    </div>
+    <div class="window-body" style="padding: 10px; background: white; height: calc(100% - 65px); overflow-y: auto;">
+       <h2 style="font-family: Arial, sans-serif; border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 15px;">مرحباً بك في نادي النخبة 🚀</h2>
+       <p style="margin-bottom: 20px; font-size: 14px;">أنت الآن تستعرض أسرار نجاح لبعض أقوى المتاجر والشركات. نحن لا نبني مواقع فقط، نحن نبني أنظمة تضخ الأموال.</p>
+       
+       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="win-border-sunken" style="padding: 10px; background: #ffffe1;">
+             <h4 style="color: #000080; margin-bottom: 5px;">🔥 متجر عطور عالمي</h4>
+             <ul style="font-size: 12px; margin-right: 15px; direction: rtl; padding-right: 20px;">
+                <li>زيادة سرعة الموقع بنسبة 80%</li>
+                <li>رفع معدل التحويل (CR) من 1.2% إلى 4.5%</li>
+                <li>إضافة نظام تتبع (Analytics) متقدم</li>
+             </ul>
+          </div>
+          <div class="win-border-sunken" style="padding: 10px; background: #ffffe1;">
+             <h4 style="color: #000080; margin-bottom: 5px;">🔥 تطبيق توصيل</h4>
+             <ul style="font-size: 12px; margin-right: 15px; direction: rtl; padding-right: 20px;">
+                <li>إعادة تصميم تجربة المستخدم (UX) بالكامل</li>
+                <li>تخفيض تكلفة الاستحواذ على العميل (CAC) بـ 40%</li>
+                <li>ربط واجهات API مع 5 خدمات لوجستية</li>
+             </ul>
+          </div>
+       </div>
+       
+       <div style="margin-top: 30px; text-align: center; border: 2px dashed #008000; padding: 15px; background: #f0fff0;">
+          <h3 style="color: #008000; margin-bottom: 10px;">هل تريد أن تكون قصة نجاحنا القادمة؟</h3>
+          <p style="font-size: 13px; margin-bottom: 15px;">بما أنك وصلت إلى هنا، أنت تمتلك الفضول والذكاء الكافي للعمل معنا.</p>
+          <button class="win-btn" onclick="document.querySelector('[data-window=win-contact]').click(); document.getElementById('win-vip-content').classList.add('minimized')" style="font-size: 16px; padding: 8px 30px; font-weight: bold;">
+             <img src="https://win98icons.alexmeub.com/icons/png/key_padlock-0.png" width="16" style="vertical-align: middle;"> ابدأ مشروعك السري معنا الآن
+          </button>
+       </div>
+    </div>
+  </section>
+
+  <!-- 12. RECYCLE BIN (Lost Revenue) -->
+  <section class="window draggable minimized" id="win-recycle-bin" style="top: 20%; left: 30%; width: 500px; height: 350px; z-index: 12;">
+    <div class="window-titlebar drag-handle">
+      <div class="window-titlebar-text">
+        <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_full-4.png" width="16" class="title-icon"> سلة المحذوفات - الأرباح الضائعة
+      </div>
+      <div class="window-titlebar-controls">
+        <button class="win-btn titlebar-btn btn-minimize">_</button>
+        <button class="win-btn titlebar-btn btn-maximize">◻</button>
+        <button class="win-btn titlebar-btn btn-close">X</button>
+      </div>
+    </div>
+    <div class="explorer-toolbar" style="border-bottom:none; padding-bottom: 2px;">
+      <span>File</span> <span>Edit</span> <span>View</span> <span>Go</span> <span>Favorites</span> <span>Help</span>
+    </div>
+    <div class="window-body" style="padding: 10px; background: white; height: calc(100% - 65px); display: flex; flex-direction: column;">
+      <div style="background: #ffffe1; border: 1px solid #e0e0e0; padding: 10px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+         <img src="https://win98icons.alexmeub.com/icons/png/msg_warning-0.png" width="24">
+         <span style="font-weight: bold; color: #C0392B; font-size: 14px;">تحذير: أنت تقوم برمي أموالك يومياً بسبب موقع إلكتروني بطيء وتسويق ضعيف.</span>
+      </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 10px; flex: 1; align-content: flex-start;">
+        <div style="text-align: center; width: 100px;">
+           <img src="https://win98icons.alexmeub.com/icons/png/file_lines-1.png" style="opacity: 0.6; width: 32px;"><br>
+           <span style="font-size: 11px;">عملاء_محتملين_ضائعين.doc</span>
+        </div>
+        <div style="text-align: center; width: 100px;">
+           <img src="https://win98icons.alexmeub.com/icons/png/gears_3-1.png" style="opacity: 0.6; width: 32px;"><br>
+           <span style="font-size: 11px;">حملات_إعلانية_فاشلة.xls</span>
+        </div>
+        <div style="text-align: center; width: 100px;">
+           <img src="https://win98icons.alexmeub.com/icons/png/msie1-1.png" style="opacity: 0.6; width: 32px;"><br>
+           <span style="font-size: 11px;">تجربة_مستخدم_سيئة.html</span>
+        </div>
+        <div style="text-align: center; width: 100px;">
+           <img src="https://win98icons.alexmeub.com/icons/png/cash_register-0.png" style="opacity: 0.6; width: 32px;"><br>
+           <span style="font-size: 11px;">مبيعات_غير_مكتملة.db</span>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: auto; padding-top: 15px; border-top: 1px solid #ccc;">
+         <button class="win-btn" onclick="document.querySelector('[data-window=win-contact]').click(); document.getElementById('win-recycle-bin').classList.add('minimized')" style="font-size: 16px; padding: 10px 40px; font-weight: bold; background: #c0c0c0; border: 3px outset #fff; color: #000080;">
+           <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" width="16" style="vertical-align: middle; margin-left: 5px;">
+           استعادة الأرباح (Restore Revenue)
+         </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. BUSINESS DEFRAGMENTER -->
+  <section class="window draggable minimized" id="win-defrag" style="top: 10%; left: 10%; width: 450px; z-index: 13;">
+    <div class="window-titlebar drag-handle">
+      <div class="window-titlebar-text">
+        <img src="https://win98icons.alexmeub.com/icons/png/defragment-0.png" width="16" class="title-icon"> أداة تحسين الأعمال (Business Defragmenter)
+      </div>
+      <div class="window-titlebar-controls">
+        <button class="win-btn titlebar-btn btn-minimize">_</button>
+        <button class="win-btn titlebar-btn btn-close">X</button>
+      </div>
+    </div>
+    <div class="window-body" style="padding: 15px;">
+      <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+         <img src="https://win98icons.alexmeub.com/icons/png/defragment-0.png" width="32" height="32">
+         <div style="flex: 1;">
+            <div style="font-weight: bold; font-family: Tahoma, sans-serif;">تحليل الأداء الحالي لأعمالك</div>
+            <div id="defrag-input-area" style="margin-top: 5px; display: flex; gap: 5px;">
+               <input type="text" id="defrag-domain-input" class="win-input" style="flex: 1;" placeholder="www.yourcompany.com" dir="ltr">
+               <button class="win-btn" id="btn-start-defrag" style="padding: 2px 10px;">فحص وتحسين</button>
+            </div>
+            <div style="font-size: 12px; margin-top: 5px; color: #333;" id="defrag-status-text">بانتظار إدخال رابط الموقع...</div>
+         </div>
+      </div>
+      
+      <div style="border: 2px inset #fff; border-bottom-color: #808080; border-right-color: #808080; background: white; padding: 2px; height: 120px; margin-bottom: 15px;">
+         <div id="defrag-grid" style="display: flex; flex-wrap: wrap; gap: 1px; height: 100%; align-content: flex-start;">
+            <!-- Blocks populated by JS -->
+         </div>
+      </div>
+      
+      <!-- Legend -->
+      <div style="display: flex; justify-content: space-around; font-size: 11px; margin-bottom: 20px;">
+         <div style="display: flex; align-items: center; gap: 5px;"><div style="width: 10px; height: 10px; background: red; border: 1px solid #888;"></div> فوضى رقمية/خسائر</div>
+         <div style="display: flex; align-items: center; gap: 5px;"><div style="width: 10px; height: 10px; background: blue; border: 1px solid #888;"></div> نظام ربحي سريع</div>
+         <div style="display: flex; align-items: center; gap: 5px;"><div style="width: 10px; height: 10px; background: #ffff00; border: 1px solid #888;"></div> جاري التحسين...</div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+         <div class="win-border-sunken" style="width: 100%; height: 20px; background: #e0e0e0; position: relative; margin-left: 10px;">
+            <div id="defrag-progress-bar" style="background: #000080; height: 100%; width: 0%;"></div>
+            <span id="defrag-progress-text" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-size: 11px; line-height: 18px; color: #fff; mix-blend-mode: difference; font-weight: bold;">0%</span>
+         </div>
+      </div>
+
+      <!-- Analysis Results Area -->
+      <div id="defrag-results" class="hidden" style="margin-top: 15px; background: #fff; border: 2px inset #fff; border-bottom-color: #a0a0a0; border-right-color: #a0a0a0; padding: 10px; font-size: 12px; display: none;">
+         <!-- Populated via JS -->
+      </div>
+      
+      <div style="text-align: center; margin-top: 15px; border-top: 1px solid #ccc; padding-top: 15px;">
+         <p id="defrag-cta-msg" style="font-size: 12px; color: #333; margin-bottom: 10px; display: none; font-weight: bold;"></p>
+         <button class="win-btn hidden" id="btn-defrag-cta" onclick="document.querySelector('[data-window=win-contact]').click(); document.getElementById('win-defrag').classList.add('minimized')" style="font-weight: bold; padding: 6px 20px; color: white; background: #008080;">استشرنا الآن لإصلاح الثغرات</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. SITE SCANNER (Terminal) -->
+  <section class="window draggable minimized" id="win-scanner" style="top: 15%; left: 25%; width: 500px; background: black; border: 2px outset #dfdfdf; z-index: 14;">
+    <div class="window-titlebar drag-handle" style="background: linear-gradient(90deg, #808080, #c0c0c0);">
+      <div class="window-titlebar-text" style="color: black;">
+        <img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png" width="16" class="title-icon"> C:\\WINDOWS\\SYSTEM32\\SCANNER.EXE
+      </div>
+      <div class="window-titlebar-controls">
+        <button class="win-btn titlebar-btn btn-close">X</button>
+      </div>
+    </div>
+    <div class="window-body" style="background: black; padding: 10px; font-family: 'Courier New', Courier, monospace; color: #00ff00; height: 350px; display: flex; flex-direction: column;">
+      <div id="scanner-output" style="flex: 1; overflow-y: auto; font-size: 14px; line-height: 1.5; white-space: pre-wrap; direction: ltr; text-align: left;">
+        Microsoft(R) Windows DOS<br>
+        (C)Copyright Microsoft Corp 1981-1998.<br><br>
+        C:\\&gt; SCANNER.EXE --target YOUR_WEBSITE<br><br>
+        Please enter a website URL to scan for conversion leaks:<br>
+      </div>
+      <div style="display: flex; margin-top: 10px; border-top: 1px dashed #008000; padding-top: 10px;">
+        <span style="color: #00ff00; font-family: 'Courier New'; font-size: 14px; margin-right: 5px;" dir="ltr">URL:</span>
+        <input type="text" id="scanner-input" placeholder="www.example.com" style="flex: 1; background: transparent; border: none; color: #00ff00; font-family: 'Courier New'; font-size: 14px; outline: none;" dir="ltr">
+        <button id="scanner-btn" style="background: #008000; color: black; font-weight: bold; border: 1px solid #00ff00; cursor: pointer; padding: 0 10px; font-family: 'Courier New';">SCAN</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. PANIC BUTTON TERMINAL -->
+  <section class="window draggable minimized" id="win-panic" style="top: 25%; left: 30%; width: 500px; z-index: 15; background: #000; color: #0f0; border: 2px solid #808080;">
+    <div class="window-titlebar drag-handle" style="background: #000;">
+      <div class="window-titlebar-text" style="color: #fff">
+        <img src="https://win98icons.alexmeub.com/icons/png/console_prompt-0.png" width="16" class="title-icon"> C:\WINDOWS\system32\cmd.exe - لا_تضغط_هنا.bat
+      </div>
+      <div class="window-titlebar-controls">
+        <button class="win-btn titlebar-btn btn-close">X</button>
+      </div>
+    </div>
+    <div class="window-body padding-none" style="background: #000; height: 300px; padding: 10px; font-family: 'Courier New', monospace; overflow-y: auto;">
+      <div id="panic-terminal-output" style="white-space: pre-wrap; margin-bottom: 10px;"></div>
+      <div style="text-align: center;">
+        <button class="win-btn hidden" id="btn-panic-cta" onclick="document.querySelector('[data-window=win-contact]').click(); document.getElementById('win-panic').classList.add('minimized')" style="font-weight: bold; padding: 8px 20px; color: black; background: #0f0; margin-top: 20px; border: 2px outset #fff; cursor: pointer;">أنقذ الموقف وتواصل معنا</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16. TIME MACHINE WARNING -->
+  <section class="window draggable minimized" id="win-time-machine" style="top: 35%; right: 35%; width: 400px; z-index: 16;">
+    <div class="window-titlebar drag-handle">
+      <div class="window-titlebar-text">
+        <img src="https://win98icons.alexmeub.com/icons/png/msg_warning-0.png" width="16" class="title-icon"> تحذير أمني - آلة الزمن
+      </div>
+      <div class="window-titlebar-controls">
+        <button class="win-btn titlebar-btn btn-close">X</button>
+      </div>
+    </div>
+    <div class="window-body" style="display: flex; gap: 15px; align-items: center; padding: 20px;">
+       <img src="https://win98icons.alexmeub.com/icons/png/msg_warning-0.png" alt="Warning" style="width: 32px; height: 32px;">
+       <p style="font-size: 13px; font-weight: bold; line-height: 1.5;">تحذير: هذه الآلة مخصصة لمن هم دون الـ 30 عاماً، أو لمن يبحثون عن تقنيات المستقبل السريعة.<br>هل أنت مستعد للرحلة؟</p>
+    </div>
+    <div style="text-align: center; margin-top: 5px; margin-bottom: 15px; display: flex; justify-content: center; gap: 10px;">
+       <button class="win-btn" id="btn-time-travel" style="padding: 4px 20px; font-weight:bold;">نعم، خذني للمستقبل</button>
+       <button class="win-btn btn-close" onclick="document.getElementById('win-time-machine').classList.add('minimized')" style="padding: 4px 20px;">لا، أفضل الكلاسيكية</button>
+    </div>
+  </section>
+
+  <!-- 11. MSN MESSENGER (Live Chat Popup) -->
+  <section class="window draggable hidden" id="win-msn" style="bottom: 45px; left: 15px; top: auto; right: auto; width: 320px; z-index: 10000; box-shadow: 2px 2px 10px rgba(0,0,0,0.5);">
+    <div class="window-titlebar drag-handle" style="background: linear-gradient(90deg, #4480A6, #80AEC8);">
+      <div class="window-titlebar-text">
+        <img src="https://win98icons.alexmeub.com/icons/png/users-1.png" width="16" class="title-icon"> MSN Messenger
+      </div>
+      <div class="window-titlebar-controls">
+        <button class="win-btn titlebar-btn btn-close" onclick="document.getElementById('win-msn').classList.add('hidden')">X</button>
+      </div>
+    </div>
+    <div class="window-body" style="background: #F4F6F9; padding: 5px; display: flex; flex-direction: column;">
+      <!-- Chat header -->
+      <div style="display: flex; align-items: center; padding: 5px; border-bottom: 1px solid #D0D4DF; margin-bottom: 5px; background: white;">
+        <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" width="32" style="border: 1px solid #808080; margin-left: 10px;">
+        <div>
+          <div style="font-weight: bold; color: #2C3E50; font-family: 'Tahoma', sans-serif;">المدير التنفيذي (Online)</div>
+          <div style="font-size: 11px; color: #7F8C8D;">يسعى للعمل مع الأذكياء فقط...</div>
+        </div>
+      </div>
+      
+      <!-- Chat history window -->
+      <div class="win-border-sunken" style="height: 120px; background: white; padding: 5px; overflow-y: auto; font-family: 'Tahoma', sans-serif; font-size: 13px; margin-bottom: 5px;">
+        <div style="color: gray; font-size: 11px; margin-bottom: 5px; text-align: center;">--- النقر على 'تحدث معي الآن' سيقوم بفتح محادثة WhatsApp ---</div>
+        <div style="margin-bottom: 8px;">
+           <span style="font-weight: bold; color: #2980B9;">المدير التنفيذي يقول:</span>
+           <div style="margin-top: 2px;">مرحباً! أرى أنك تتصفح خدماتنا منذ قليل...</div>
+        </div>
+        <div style="margin-bottom: 8px;" id="msn-msg-2" class="hidden">
+           <span style="font-weight: bold; color: #2980B9;">المدير التنفيذي يقول:</span>
+           <div style="margin-top: 2px; color: #C0392B; font-weight: bold; font-size: 14px;">لدينا عرض حصري لك، هل لديك 5 دقائق للدردشة السريعة؟ <img src="https://win98icons.alexmeub.com/icons/png/check-0.png" width="12"></div>
+        </div>
+      </div>
+      
+      <!-- Connect CTA -->
+      <a href="https://wa.me/XXXXXXXXXX" target="_blank" style="text-decoration: none;">
+        <button class="win-btn" style="width: 100%; padding: 8px; font-weight: bold; display: flex; align-items: center; justify-content: center; background: #e0eee0; color: #008000; font-family: 'Tahoma', sans-serif; cursor: pointer; border: 2px outset #fff; border-bottom-color: #808080; border-right-color: #808080;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#25D366" viewBox="0 0 16 16" style="margin-left: 8px;">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+          </svg>
+          تحدث معي الآن على الواتساب
+        </button>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       CLIPPY (Friendly Sales Assistant)
+       ============================================== -->
+  <div class="clippy-container hidden" id="clippy">
+    <div class="clippy-speech-bubble" id="clippy-msg">
+      <p>يبدو أنك تتصفح خدماتنا وترغب في تحويل فكرتك إلى تطبيق حقيقي...<br><br>هل أساعدك في حجز استشارة مجانية مع فريقنا؟</p>
+      <div class="mt-3 text-center" style="display: flex; gap: 10px; justify-content: center;">
+        <button class="win-btn" onclick="document.querySelector('[data-window=win-contact]').click()">نعم، تواصل معنا</button>
+        <button class="win-btn clippy-dismiss" id="clippy-dismiss">لا شكراً</button>
+      </div>
+    </div>
+    <div class="clippy-agent">📎</div>
+  </div>
+
+  <!-- ==============================================
+       TASKBAR 
+       ============================================== -->
+  <footer class="taskbar">
+    <div class="taskbar-start">
+      <button class="win-btn start-btn" id="start-btn">
+        <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" alt="Windows Logo" width="16" height="16" style="margin-right: 4px;">
+        ابدأ (Start)
+      </button>
+    </div>
+    
+    <!-- Active windows will show here dynamically -->
+    <div class="taskbar-tasks" id="taskbar-tasks">
+      <button class="win-btn task-btn active" data-target="win-welcome">مرحباً بك</button>
+    </div>
+
+    <div class="taskbar-tray">
+      <div class="tray-icons">
+        <span class="tray-icon" title="Network Connected">🌐</span>
+        <span class="tray-icon" title="Volume">🔊</span>
+      </div>
+      <div class="clock" id="clock">12:00 PM</div>
+    </div>
+  </footer>
+
+  <!-- START MENU -->
+  <nav class="start-menu hidden" id="start-menu">
+    <div class="start-menu-sidebar">
+      <span>Windows 98</span>
+    </div>
+    <div class="start-menu-items">
+      <a href="#" class="start-item" onclick="document.querySelector('[data-window=win-welcome]').click()">
+        <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" width="24" class="icon">
+        <span class="label">مرحباً بك</span>
+      </a>
+      <a href="#" class="start-item" onclick="document.querySelector('[data-window=win-services]').click()">
+        <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" width="24" class="icon">
+        <span class="label">خدماتنا (Programs)</span>
+      </a>
+      <a href="#" class="start-item" onclick="document.querySelector('[data-window=win-portfolio]').click()">
+        <img src="https://win98icons.alexmeub.com/icons/png/image_file-0.png" width="24" class="icon">
+        <span class="label">أعمالنا (Documents)</span>
+      </a>
+      <a href="#" class="start-item" onclick="document.querySelector('[data-window=win-why-us]').click()">
+        <img src="https://win98icons.alexmeub.com/icons/png/settings_gear-0.png" width="24" class="icon">
+        <span class="label">لماذا نحن (Settings)</span>
+      </a>
+      <a href="#" class="start-item" onclick="document.querySelector('[data-window=win-minesweeper]').click()">
+        <img src="https://win98icons.alexmeub.com/icons/png/game_mine_1-0.png" onerror="this.src='https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png'" width="24" class="icon">
+        <span class="label">لعبة الألغام (Games)</span>
+      </a>
+      <a href="#" class="start-item" onclick="document.querySelector('[data-window=win-media]').click()">
+        <img src="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-3.png" width="24" class="icon">
+        <span class="label">مشغل الموسيقى (Media)</span>
+      </a>
+      <a href="#" class="start-item" id="start-bsod">
+        <img src="https://win98icons.alexmeub.com/icons/png/network_normal_two_pcs-2.png" width="24" class="icon">
+        <span class="label">الوكالات التقليدية (Warning)</span>
+      </a>
+      <div class="divider"></div>
+      <a href="#" class="start-item" onclick="document.querySelector('[data-window=win-contact]').click()">
+        <img src="https://win98icons.alexmeub.com/icons/png/envelope_closed-0.png" width="24" class="icon">
+        <span class="label">طلب استشارة (Contact)</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Audio Context -->
+  
+  <!-- ==============================================
+       WEB 3.0 TIME MACHINE OVERLAY
+       ============================================== -->
+  <div id="web3-overlay" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: opacity 1.5s ease-in-out; background:radial-gradient(circle at center, #111 0%, #000 100%);">
+     <div class="web3-bg"></div>
+     <div class="glass-card">
+        <h1 class="modern-title"><span class="neon-text">المستقبل</span> هنا.</h1>
+        <p class="modern-subtitle">نحن نعشق كلاسيكيات الماضي، لكننا نبني تكنولوجيا المستقبل.<br>هكذا سيبدو مشروعك القادم معنا.</p>
+        <div style="display:flex; justify-content:center; gap:20px; margin-top:30px;">
+           <button class="modern-btn" onclick="document.querySelector('[data-window=win-contact]').click(); document.getElementById('web3-overlay').style.opacity=0; setTimeout(()=>document.getElementById('web3-overlay').classList.add('hidden'), 1500);">ابدأ التحول الرقمي</button>
+           <button class="modern-btn highlight" onclick="document.getElementById('web3-overlay').style.opacity=0; setTimeout(()=>document.getElementById('web3-overlay').classList.add('hidden'), 1500);">العودة للماضي</button>
+        </div>
+     </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

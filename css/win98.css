@@ -1,0 +1,259 @@
+/* css/win98.css - The Core Windows 98 Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+  /* Classic Win98 Color Palette */
+  --win-desktop: #008080;
+  --win-surface: #c0c0c0;
+  --win-surface-dark: #808080;
+  --win-title-active: #000080;
+  --win-title-inactive: #808080;
+  --win-text: #000000;
+  --win-text-alt: #ffffff;
+  --win-highlight-bg: #000080;
+  --win-highlight-text: #ffffff;
+  
+  /* 3D Border Colors */
+  --border-lightest: #ffffff;
+  --border-light: #dfdfdf;
+  --border-dark: #808080;
+  --border-darkest: #000000;
+
+  /* Typography */
+  --font-win: 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+  --font-pixel: 'VT323', monospace;
+}
+
+body {
+  font-family: var(--font-win);
+  font-size: 11px;
+  color: var(--win-text);
+  background-color: var(--win-desktop);
+  /* Optional: pixelated cursor */
+  cursor: default; 
+}
+
+/* =========================================
+   3D Borders Mixins (Classes)
+   ========================================= */
+
+/* The classic raised window / button look */
+.win-border-raised {
+  background-color: var(--win-surface);
+  border-top: 1px solid var(--border-lightest);
+  border-left: 1px solid var(--border-lightest);
+  border-right: 1px solid var(--border-darkest);
+  border-bottom: 1px solid var(--border-darkest);
+  box-shadow: 
+    inset 1px 1px 0 var(--border-light), 
+    inset -1px -1px 0 var(--border-dark);
+}
+
+/* For pressed buttons or inner containers */
+.win-border-sunken {
+  background-color: var(--win-surface);
+  border-top: 1px solid var(--border-dark);
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-lightest);
+  border-bottom: 1px solid var(--border-lightest);
+  box-shadow: inset 1px 1px 0 var(--border-darkest);
+}
+
+/* For deep form inputs */
+.win-border-sunken-deep {
+  background-color: #ffffff;
+  border-top: 1px solid var(--border-dark);
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-lightest);
+  border-bottom: 1px solid var(--border-lightest);
+  box-shadow: inset 1px 1px 0 var(--border-darkest);
+}
+
+/* =========================================
+   Windows Forms & Buttons
+   ========================================= */
+
+button, .win-btn {
+  font-family: var(--font-win);
+  font-size: 11px;
+  color: var(--win-text);
+  background-color: var(--win-surface);
+  padding: 4px 10px;
+  cursor: pointer;
+  /* Apply raised border by default */
+  border-top: 1px solid var(--border-lightest);
+  border-left: 1px solid var(--border-lightest);
+  border-right: 1px solid var(--border-darkest);
+  border-bottom: 1px solid var(--border-darkest);
+  box-shadow: 
+    inset 1px 1px 0 var(--border-light), 
+    inset -1px -1px 0 var(--border-dark);
+}
+
+button:active, .win-btn:active, .win-btn.active {
+  /* Apply sunken border when clicked */
+  border-top: 1px solid var(--border-darkest);
+  border-left: 1px solid var(--border-darkest);
+  border-right: 1px solid var(--border-lightest);
+  border-bottom: 1px solid var(--border-lightest);
+  box-shadow: inset 1px 1px 0 var(--border-dark);
+  padding: 5px 9px 3px 11px; /* shift text down/right */
+}
+
+button:focus, .win-btn:focus {
+  outline: 1px dotted var(--win-text);
+  outline-offset: -4px;
+}
+
+input[type="text"], 
+input[type="email"], 
+textarea {
+  font-family: var(--font-win);
+  font-size: 11px;
+  padding: 3px 4px;
+  /* Apply sunken deep border */
+  background-color: #ffffff;
+  border-top: 1px solid var(--border-dark);
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-lightest);
+  border-bottom: 1px solid var(--border-lightest);
+  box-shadow: inset 1px 1px 0 var(--border-darkest);
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+textarea:focus {
+  outline: none;
+}
+
+/* Custom Win98 Checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  background-color: #ffffff;
+  border-top: 1px solid var(--border-dark);
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-lightest);
+  border-bottom: 1px solid var(--border-lightest);
+  box-shadow: inset 1px 1px 0 var(--border-darkest);
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: -3px;
+  left: 1px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--win-text);
+}
+
+/* =========================================
+   Window Components
+   ========================================= */
+
+.win-window {
+  background-color: var(--win-surface);
+  /* Raised border */
+  border-top: 1px solid var(--border-lightest);
+  border-left: 1px solid var(--border-lightest);
+  border-right: 1px solid var(--border-darkest);
+  border-bottom: 1px solid var(--border-darkest);
+  box-shadow: 
+    inset 1px 1px 0 var(--border-light), 
+    inset -1px -1px 0 var(--border-dark);
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.win-title-bar {
+  background: linear-gradient(90deg, var(--win-title-active) 0%, #1084d0 100%);
+  color: var(--win-text-alt);
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.win-title-bar.inactive {
+  background: var(--win-title-inactive);
+}
+
+.win-title-bar-text {
+  padding-left: 2px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.win-title-bar-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.win-title-bar-btn {
+  width: 16px;
+  height: 14px;
+  font-family: var(--font-win);
+  font-size: 10px;
+  font-weight: bold;
+  /* Raised tiny button */
+  background-color: var(--win-surface);
+  border-top: 1px solid var(--border-lightest);
+  border-left: 1px solid var(--border-lightest);
+  border-right: 1px solid var(--border-darkest);
+  border-bottom: 1px solid var(--border-darkest);
+  color: var(--win-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  padding: 0;
+  cursor: default;
+}
+
+.win-title-bar-btn:active {
+  border-top: 1px solid var(--border-darkest);
+  border-left: 1px solid var(--border-darkest);
+  border-right: 1px solid var(--border-lightest);
+  border-bottom: 1px solid var(--border-lightest);
+  padding-top: 1px;
+  padding-left: 1px;
+}
+
+.win-window-body {
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* =========================================
+   Typography Utilities
+   ========================================= */
+
+.pixel-font {
+  font-family: var(--font-pixel);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-1 { margin-bottom: 8px; }
+.mb-2 { margin-bottom: 16px; }
+.mb-3 { margin-bottom: 24px; }
+.mt-1 { margin-top: 8px; }
+.mt-2 { margin-top: 16px; }
+
+/* Selection */
+::selection {
+  background: var(--win-highlight-bg);
+  color: var(--win-highlight-text);
+}
