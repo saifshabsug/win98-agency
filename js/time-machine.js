@@ -9,6 +9,33 @@ document.addEventListener('DOMContentLoaded', () => {
   overlay.id = 'transition-overlay';
   document.body.appendChild(overlay);
 
+  // Handle Deep Linking to Modern Mode directly
+  if (window.location.search.includes('modern=true')) {
+      const desktopArea = document.querySelector('.desktop-area');
+      const taskbar = document.querySelector('.taskbar');
+      const clippy = document.getElementById('clippy');
+      const msn = document.getElementById('win-msn');
+      
+      if(desktopArea) desktopArea.style.display = 'none';
+      if(taskbar) taskbar.style.display = 'none';
+      if(clippy) clippy.style.display = 'none';
+      if(msn) msn.style.display = 'none';
+      if(winTimeMachine) winTimeMachine.classList.add('hidden');
+      if(overlay) overlay.style.display = 'none';
+      
+      document.body.classList.remove('desktop-os');
+      document.body.classList.add('modern-mode');
+      
+      const modernApp = document.getElementById('modern-app');
+      if (modernApp) {
+        modernApp.classList.remove('hidden');
+        setTimeout(() => {
+            initModernBackground();
+            initStarfield();
+        }, 100);
+      }
+  }
+
   if (btnTimeTravel) {
     btnTimeTravel.addEventListener('click', triggerTimeTravel);
   }
@@ -72,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setTimeout(() => {
       // Hide Modern
+      window.history.replaceState({}, document.title, window.location.pathname); // Clear URL params
       const modernApp = document.getElementById('modern-app');
       if (modernApp) modernApp.classList.add('hidden');
       document.body.classList.remove('modern-mode');
@@ -105,9 +133,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // --- Audio Context for Effects ---
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let audioCtx;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  } catch (e) {
+    console.warn("AudioContext not supported or blocked by browser:", e);
+  }
   
   function playTimeTravelSound() {
+    if (!audioCtx) return;
     if (audioCtx.state === 'suspended') audioCtx.resume();
     
     // Deep bass sweep up
@@ -130,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function playReturnSound() {
+    if (!audioCtx) return;
     if (audioCtx.state === 'suspended') audioCtx.resume();
     
     const osc = audioCtx.createOscillator();
@@ -150,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Interactive Starfield ---
-  let starsInitialized = false;
+  var starsInitialized = false;
   function initStarfield() {
     if (starsInitialized) return;
     starsInitialized = true;
@@ -237,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Modern Background & Interactions Init ---
-  let bgInitialized = false;
+  var bgInitialized = false;
   function initModernBackground() {
     if (bgInitialized) return;
     bgInitialized = true;
@@ -268,53 +303,89 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Red to Green Tech Upgrade Toggle (Breaker Switch)
-    const breakerLever = document.getElementById('breaker-lever');
-    const breakerLabelText = document.getElementById('breaker-label-text');
-
-    if(breakerLever) {
-         let isUp = false;
-        breakerLever.addEventListener('click', () => {
-             if (isUp) return;
-             isUp = true;
+    // 2. Red to Green Tech Upgrade Toggle (3D Server Node)
+    window.fixLegacySystem = function(bladeElement) {
+         if (!bladeElement.classList.contains('error-state')) {
+             // Revert to Error/Red state
+             bladeElement.classList.remove('active');
+             bladeElement.classList.add('error-state');
              
-             // Visually push the lever up
-             breakerLever.classList.add('is-up');
-             
-             // Change CSS Theme globally
-             document.body.classList.add('success-mode');
-             
-             // Play Success Sound
-             playSuccessTechSound();
-             
-             // Dynamic Content Replacements
-             if (breakerLabelText) {
-                 breakerLabelText.textContent = 'الطاقة مستقرة - تم الترقية';
-                 breakerLabelText.classList.remove('danger');
+             const lights = bladeElement.querySelector('.blade-lights');
+             if (lights) {
+                lights.innerHTML = '<span class="s-light pulse-red"></span><span class="s-light"></span>';
              }
-
+             const label = bladeElement.querySelector('.blade-label');
+             if (label) {
+                label.textContent = 'NODE_ERR';
+             }
+             
+             document.body.classList.remove('success-mode');
+             
+             // Revert Content
              const heroBadge = document.getElementById('hero-badge');
-             if(heroBadge) heroBadge.innerHTML = 'الأنظمة مؤمنة وتعمل بكفاءة 💯';
+             if(heroBadge) heroBadge.innerHTML = 'نحن نعرف الماضي جيداً، لكننا نبني المستقبل 🚀';
              
              const heroTitle = document.getElementById('hero-title');
              if(heroTitle) heroTitle.innerHTML = 'نصمم ونبرمج لك<br><span class="text-gradient-bright" id="hero-gradient">مستقبلاً رقمياً لا يُنسى</span>';
              
              const heroDesc = document.getElementById('hero-desc');
-             if(heroDesc) heroDesc.innerHTML = 'خوادم لا تنهار، أمان غير قابل للاختراق، وعمليات مؤتمتة وتعمل بالذكاء الاصطناعي 24/7. هكذا تقود السوق ولا تتبعه.';
+             if(heroDesc) heroDesc.innerHTML = 'المواقع البطيئة، السيرفرات المتوقفة، والأنظمة المخترقة تكلفك عملاء حقيقيين كل دقيقة. ارتقِ ببنيتك التحتية لتواكب مستوى تطلعاتك الاستثنائية.';
              
              const trustBarSpans = document.querySelectorAll('.w3-trust-bar span');
              if(trustBarSpans.length >= 3) {
-                 trustBarSpans[0].innerHTML = '<span style="color:var(--w3-secondary);">▲ 85%</span> زيادة تحويلات';
-                 trustBarSpans[1].innerHTML = '<span style="color:var(--w3-secondary);">0</span> ثواني تعطل';
-                 trustBarSpans[2].innerHTML = '<span style="color:var(--w3-secondary);">🔒</span> أمان سيبراني محكم';
+                 trustBarSpans[0].innerHTML = '<span style="color:var(--w3-primary);">▼ 45%</span> معدل ارتداد';
+                 trustBarSpans[1].innerHTML = '<span style="color:var(--w3-primary);">▼ $12K</span> تسرب شهري';
+                 trustBarSpans[2].innerHTML = '<span style="color:var(--w3-primary);">⚠</span> ثغرات خطرة';
              }
              
-             // Wait for animation then change button CTA
-             setTimeout(() => {
-                 document.querySelector('.breaker-marketing').innerHTML = '<a href="#" style="color:var(--w3-secondary); font-weight:bold; text-decoration:none;" onclick="document.querySelector(\'[data-window=win-contact]\').click(); window.returnToWin98();">البنية التحتية جاهزة - تواصل معنا لبدء المشروع</a>';
-             }, 800);
-        });
-    }
+             const helper = document.querySelector('.server-helper-text');
+             if(helper) helper.innerHTML = 'تحذير: النظام يعمل بکفاءة 32٪ فقط. <br>اضغط على الخادم الأحمر لإصلاح البنية التحتية.';
+             
+             return;
+         }
+         
+         // Visually upgrade the blade
+         bladeElement.classList.remove('error-state');
+         bladeElement.classList.add('active'); // Pop out
+         
+         const lights = bladeElement.querySelector('.blade-lights');
+         if (lights) {
+            lights.innerHTML = '<span class="s-light pulse-blue"></span><span class="s-light"></span>';
+         }
+         const label = bladeElement.querySelector('.blade-label');
+         if (label) {
+            label.textContent = 'NODE_SECURE';
+         }
+         
+         // Change CSS Theme globally
+         document.body.classList.add('success-mode');
+         
+         // Play Success Sound
+         playSuccessTechSound();
+         
+         // Dynamic Content Replacements
+         const heroBadge = document.getElementById('hero-badge');
+         if(heroBadge) heroBadge.innerHTML = 'الأنظمة مؤمنة وتعمل بكفاءة عالية 💯';
+         
+         const heroTitle = document.getElementById('hero-title');
+         if(heroTitle) heroTitle.innerHTML = 'نصمم ونبرمج لك<br><span class="text-gradient-bright" id="hero-gradient">مستقبلاً رقمياً لا يُنسى</span>';
+         
+         const heroDesc = document.getElementById('hero-desc');
+         if(heroDesc) heroDesc.innerHTML = 'خوادم لا تنهار، أمان سيبراني معقد، وعمليات مؤتمتة بالذكاء الاصطناعي 24/7. هكذا تنمو وتتصدر السوق.';
+         
+         const trustBarSpans = document.querySelectorAll('.w3-trust-bar span');
+         if(trustBarSpans.length >= 3) {
+             trustBarSpans[0].innerHTML = '<span style="color:var(--w3-secondary);">▲ 85%</span> زيادة تحويلات';
+             trustBarSpans[1].innerHTML = '<span style="color:var(--w3-secondary);">0</span> ثواني تعطل';
+             trustBarSpans[2].innerHTML = '<span style="color:var(--w3-secondary);">🔒</span> أمان سيبراني محكم';
+         }
+         
+         // Wait for animation then change helper text
+         setTimeout(() => {
+             const helper = document.querySelector('.server-helper-text');
+             if(helper) helper.innerHTML = '<a href="https://wa.me/966XXXXXXXXX" target="_blank" style="color:var(--w3-primary); font-weight:bold; text-decoration:none; padding:10px; border:1px solid var(--w3-primary); border-radius:5px; background:rgba(255,255,255,0.05);">البنية التحتية جاهزة - تواصل معنا</a>';
+         }, 800);
+    };
 
     // 3. Scroll Animations for Vertical Timeline
     const observer = new IntersectionObserver((entries) => {

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تفاصيل الخدمة | Neural IT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/web3.css">
+  <style>
+    /* =========================================
+       Premium Service Detail Styles
+       ========================================= */
+    body.service-page {
+      background-color: var(--w3-bg);
+      color: var(--w3-text);
+      font-family: 'Noto Kufi Arabic', sans-serif;
+    }
+
+    .service-hero {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--w3-border);
+    }
+
+    .service-hero-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.4) contrast(1.2) grayscale(0.5);
+      z-index: 0;
+      animation: zoomSlow 20s infinite alternate;
+    }
+
+    @keyframes zoomSlow {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    .service-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--w3-bg) 0%, transparent 100%), linear-gradient(to right, rgba(0,0,0,0.8), transparent);
+      z-index: 1;
+    }
+
+    .service-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      width: 100%;
+      padding: 0 20px;
+      text-align: right;
+    }
+
+    .service-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .service-title {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .service-desc {
+      font-size: 20px;
+      color: rgba(255,255,255,0.8);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* Content Layout */
+    .service-body {
+      padding: 80px 0;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 60px;
+    }
+
+    .service-main {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--w3-text-muted);
+    }
+
+    .service-main h2 {
+      font-size: 32px;
+      color: var(--w3-text);
+      margin: 40px 0 20px;
+      font-weight: 700;
+    }
+
+    .service-main p { margin-bottom: 20px; }
+
+    .service-main ul {
+      margin-bottom: 40px;
+      padding-right: 20px;
+      list-style: none;
+    }
+
+    .service-main ul li {
+      position: relative;
+      margin-bottom: 15px;
+      padding-right: 30px;
+    }
+
+    .service-main ul li::before {
+      content: '✓';
+      position: absolute;
+      right: 0;
+      top: 2px;
+      color: var(--w3-primary);
+      font-weight: bold;
+    }
+
+    .service-sidebar {
+      position: sticky;
+      top: 100px;
+      height: max-content;
+    }
+
+    .sidebar-card {
+      background: var(--w3-surface);
+      border: 1px solid var(--w3-border);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 20px;
+      color: var(--w3-text);
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--w3-border);
+    }
+
+    .contact-cta {
+      text-align: center;
+      background: linear-gradient(145deg, #111, #050505);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-cta::before {
+      content: '';
+      position: absolute;
+      top: -50px; left: -50px;
+      width: 100px; height: 100px;
+      background: var(--w3-accent);
+      filter: blur(80px);
+      opacity: 0.5;
+    }
+
+    .contact-cta p {
+      font-size: 16px;
+      margin-bottom: 25px;
+      color: var(--w3-text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .service-grid { grid-template-columns: 1fr; }
+      .service-title { font-size: 42px; }
+    }
+  </style>
+</head>
+<body class="modern-mode service-page">
+
+  <!-- Header -->
+  <header class="w3-header scrolled" style="position: sticky;">
+    <div class="modern-container w3-nav">
+      <div class="w3-nav-right">
+        <a href="../?modern=true" class="w3-logo">
+          <div class="w3-logo-icon">▲</div>
+          NEURAL IT
+        </a>
+        <div class="w3-menu">
+           <a href="../?modern=true" class="w3-link">الرئيسية</a>
+           <a href="our-story.html" class="w3-link">قصتنا</a>
+           <a href="service-details.html" class="w3-link active">الخدمات</a>
+           <a href="blog.html" class="w3-link">المدونة التقنية</a>
+        </div>
+      </div>
+      <div class="w3-nav-left">
+         <a href="https://wa.me/966XXXXXXXXX" target="_blank" class="w3-btn w3-btn-glow">أتمتتة أعمالك الآن</a>
+         <a href="../index.html" class="w3-btn-nostalgia">نوستالجيا 98</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="service-hero">
+      <div class="service-hero-bg"></div>
+      <div class="service-hero-overlay"></div>
+      <div class="service-hero-content">
+        <span class="service-badge">البنية التحتية السحابية</span>
+        <h1 class="service-title">خوادم قوية، أداء لا ينهار</h1>
+        <p class="service-desc">بناء بيئة سحابية (Cloud-Native) تضمن التوسع التلقائي والثبات التام أمام ملايين الزيارات وأعتى الهجمات السيبرانية.</p>
+      </div>
+    </section>
+
+    <section class="service-body modern-container">
+      <div class="service-grid">
+        <div class="service-main">
+          <h2>نهاية عصر الشاشات الزرقاء وسقوط السيرفرات</h2>
+          <p>في عصر السرعة الفائقة، كل ثانية تأخير في تحميل متجرك أو موقعك تكلفك عملاء حقيقيين وأموالاً مهدرة. الاعتماد على الاستضافات التقليدية لم يعد كافياً إذا كنت تخطط لقيادة السوق. نحن لا نقدم لك استضافة، بل نبني لك (إمبراطورية رقمية) تتنفس وتتوسع تلقائياً حسب احتياجك.</p>
+          
+          <p>نقوم بترحيل أنظمتك الحالية وإعادة هندستها لتعمل على بنية الخدمات المصغرة (Microservices) مستفيدين من قدرات أمازون (AWS) وجوجل السحابية لضمان توفر بنسبة 99.99%.</p>
+
+          <h2>بماذا نتميز في الحلول السحابية؟</h2>
+          <ul>
+            <li><strong>Auto-Scaling ذكي:</strong> يتوسع السيرفر تلقائياً عند مواسم التخفيضات وينكمش بعدها لتوفير التكاليف.</li>
+            <li><strong>أمان Zero-Trust:</strong> حماية معممة على كل نقطة اتصال لمنع هجمات الـ DDoS والاختراقات.</li>
+            <li><strong>سرعة استجابة برقية:</strong> توزيع المحتوى على خوادم عالمية (CDN) بحيث يفتح موقعك للعميل كأنه في جهازه.</li>
+            <li><strong>تعافي من الكوارث (Disaster Recovery):</strong> نسخ احتياطي لحظي موزّع يضمن عدم فقدان بياناتك إطلاقاً.</li>
+          </ul>
+
+          <h2>لمن هذه الخدمة؟</h2>
+          <p>صُممت هذه الخدمة للمتاجر الإلكترونية الكبرى التي تنفذ حملات إعلانية ضخمة، والتطبيقات المالية، والمنصات الحكومية التي تتطلب درجة عالية من السرية والثبات.</p>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="sidebar-card contact-cta">
+            <h3>جاهز لترقية بنيتك؟</h3>
+            <p>دعنا نحلل نظامك الحالي ونقترح هندسة تضاعف أداء موقعك وتنهي أعطاله للأبد.</p>
+            <a href="https://wa.me/966XXXXXXXXX" target="_blank" class="w3-btn w3-btn-glow" style="width: 100%; display: block; box-sizing: border-box; text-align: center;">احجز استشارة مع خبير التنفيذ</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>خدمات تقنية مرتبطة</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 10px; border-bottom: 1px solid var(--w3-border); padding-bottom: 10px;">
+                <a href="#" style="color: var(--w3-text); text-decoration: none; font-weight: 600;">تطوير تطبيقات الجوال</a>
+              </li>
+              <li style="margin-bottom: 10px; border-bottom: 1px solid var(--w3-border); padding-bottom: 10px;">
+                <a href="#" style="color: var(--w3-text); text-decoration: none; font-weight: 600;">اختبار الاختراق (Cyber Security)</a>
+              </li>
+              <li>
+                <a href="#" style="color: var(--w3-text); text-decoration: none; font-weight: 600;">تطوير واجهات المستخدم UI/UX</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w3-footer">
+    <div class="modern-container">
+      <div class="w3-footer-grid">
+        <div class="w3-footer-col">
+          <a href="../?modern=true" class="w3-logo" style="margin-bottom: 20px; display:inline-flex;">
+            <div class="w3-logo-icon">▲</div>
+            NEURAL IT
+          </a>
+          <p>نبني بنى تحتية سحابية غير قابلة للانهيار، واجهات ويب 3.0 سريعة كالبرق، ونطور حلول ذكاء اصطناعي تصنع الفارق للشركات الكبرى.</p>
+        </div>
+        <div class="w3-footer-col">
+          <h3>الروابط السريعة</h3>
+          <ul class="w3-footer-links">
+            <li><a href="../?modern=true">الرئيسية</a></li>
+            <li><a href="our-story.html">قصتنا</a></li>
+            <li><a href="service-details.html">الخدمات السحابية</a></li>
+            <li><a href="blog.html">المدونة التقنية</a></li>
+          </ul>
+        </div>
+        <div class="w3-footer-col">
+          <h3>تواصل معنا</h3>
+          <ul class="w3-footer-links">
+            <li style="direction: ltr; text-align: right;"><a href="https://wa.me/966XXXXXXXXX" target="_blank">+966 50 123 4567 :واتساب</a></li>
+            <li><a href="mailto:hello@neural-it.com">hello@neural-it.com</a></li>
+            <li><a href="#">الرياض، المملكة العربية السعودية</a></li>
+          </ul>
+        </div>
+        <div class="w3-footer-col">
+          <h3>الأنظمة الداخلية</h3>
+          <ul class="w3-footer-links">
+            <li><a href="../index.html">محاكي التسعينات (Legacy)</a></li>
+            <li><a href="../admin/index.html">بوابة الموظفين (CMS)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="w3-footer-bottom">
+        <div>© 2026 Neural IT. All rights reserved. Architectured for the Web 3.0 Era.</div>
+        <a href="../index.html" class="w3-return-btn" style="text-decoration: none;">العودة إلى الزمن الجميل (Win98)</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

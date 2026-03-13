@@ -5,9 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // 0. AUDIO CONTEXT (SOUND EFFECTS)
   // ==========================================
   // Audio Context
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let audioCtx;
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  } catch (e) {
+    console.warn("AudioContext not supported or blocked by browser:", e);
+  }
   
   function playClickSound() {
+    if (!audioCtx) return;
     if (audioCtx.state === 'suspended') audioCtx.resume();
     const osc = audioCtx.createOscillator();
     const gainNode = audioCtx.createGain();

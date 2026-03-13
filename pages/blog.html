@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المدونة التقنية | Neural IT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/web3.css">
+  <style>
+    /* =========================================
+       Blog / Articles Page Styles
+       ========================================= */
+    body.blog-page {
+      background-color: var(--w3-bg);
+      color: var(--w3-text);
+      font-family: 'Noto Kufi Arabic', sans-serif;
+    }
+
+    .blog-header {
+      padding: 120px 20px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--w3-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-header::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0, 112, 243, 0.1) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .blog-title {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-subtitle {
+      font-size: 18px;
+      color: var(--w3-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Filters */
+    .blog-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--w3-border);
+      color: var(--w3-text-muted);
+      padding: 8px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--w3-surface);
+      border-color: var(--w3-text);
+      color: var(--w3-primary);
+    }
+
+    /* Grid layout */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 60px 0;
+    }
+
+    .blog-card {
+      background: var(--w3-surface);
+      border: 1px solid var(--w3-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.4s var(--w3-easing), border-color 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--w3-text-muted);
+    }
+
+    .blog-img-wrap {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--w3-border);
+    }
+
+    .blog-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .blog-card:hover .blog-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .blog-content {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--w3-text-muted);
+      margin-bottom: 15px;
+    }
+
+    .blog-category {
+      background: rgba(255,255,255,0.05);
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--w3-primary);
+      font-weight: bold;
+    }
+
+    .blog-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .blog-card-desc {
+      font-size: 15px;
+      color: var(--w3-text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .blog-read-more {
+      font-weight: bold;
+      color: var(--w3-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .blog-read-more::after {
+      content: '←';
+      transition: transform 0.3s;
+    }
+
+    .blog-card:hover .blog-read-more::after {
+      transform: translateX(-5px);
+    }
+  </style>
+</head>
+<body class="modern-mode blog-page">
+
+  <!-- Header -->
+  <header class="w3-header scrolled" style="position: sticky;">
+    <div class="modern-container w3-nav">
+      <div class="w3-nav-right">
+        <a href="../?modern=true" class="w3-logo">
+          <div class="w3-logo-icon">▲</div>
+          NEURAL IT
+        </a>
+        <div class="w3-menu">
+           <a href="../?modern=true" class="w3-link">الرئيسية</a>
+           <a href="our-story.html" class="w3-link">قصتنا</a>
+           <a href="service-details.html" class="w3-link">الخدمات</a>
+           <a href="blog.html" class="w3-link active">المدونة التقنية</a>
+        </div>
+      </div>
+      <div class="w3-nav-left">
+         <a href="https://wa.me/966XXXXXXXXX" target="_blank" class="w3-btn w3-btn-glow">أتمتتة أعمالك الآن</a>
+         <a href="../index.html" class="w3-btn-nostalgia">نوستالجيا 98</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="blog-header">
+      <div class="modern-container">
+        <h1 class="blog-title text-gradient">المدونة التقنية والرؤية المستقبلية</h1>
+        <p class="blog-subtitle">نشارك أحدث الأفكار، والتحديثات التقنية، واستراتيجيات الأعمال لرفع مستوى وكالتك إلى القمة.</p>
+        
+        <div class="blog-filters">
+          <button class="filter-btn active">الكل</button>
+          <button class="filter-btn">تطوير الويب</button>
+          <button class="filter-btn">البنية السحابية</button>
+          <button class="filter-btn">الذكاء الاصطناعي</button>
+          <button class="filter-btn">أمن المعلومات</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-list modern-container">
+      <div class="blog-grid">
+        
+        <!-- Post 1 -->
+        <a href="#" class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800" alt="Cloud Architecture">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">البنية السحابية</span>
+              <span>قبل يومين</span>
+            </div>
+            <h3 class="blog-card-title">كيف تبني معمارية سحابية لا تسقط أبداً (Zero Downtime)</h3>
+            <p class="blog-card-desc">تعرف على أسرار بناء بيئات سحابية متقدمة باستخدام AWS Kubernetes وتوجيه المرور التلقائي لتجنب أي فشل في الخوادم.</p>
+            <div class="blog-read-more">اقرأ المقال</div>
+          </div>
+        </a>
+
+        <!-- Post 2 -->
+        <a href="#" class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" alt="Artificial Intelligence">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">الذكاء الاصطناعي</span>
+              <span>15 مايو 2026</span>
+            </div>
+            <h3 class="blog-card-title">ثورة الـ Agents: متى تتولى الآلات إدارة المتابعة نيابة عنك؟</h3>
+            <p class="blog-card-desc">تحليل شامل لكيفية تحويل فرق المبيعات البشرية إلى مدراء لنخبة من وكلاء الذكاء الاصطناعي التي تعمل وتسوق على مدار الساعة.</p>
+            <div class="blog-read-more">اقرأ المقال</div>
+          </div>
+        </a>
+
+        <!-- Post 3 -->
+        <a href="#" class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="UI UX Design">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">تصميم الواجهات</span>
+              <span>10 أبريل 2026</span>
+            </div>
+            <h3 class="blog-card-title">توديع الـ Glassmorphism: التوجه الجديد نحو الـ Sleek Tech</h3>
+            <p class="blog-card-desc">لماذا تتخلى أكبر الشركات التقنية عن التأثيرات الزجاجية وتتجه نحو التصاميم الصلبة، الحادة، والمباشرة (استراتيجية Vercel).</p>
+            <div class="blog-read-more">اقرأ المقال</div>
+          </div>
+        </a>
+
+        <!-- Post 4 -->
+        <a href="#" class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" alt="Cyber Security">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">أمن المعلومات</span>
+              <span>01 مارس 2026</span>
+            </div>
+            <h3 class="blog-card-title">إذا كان اتصالك آمناً، فماذا عن القواعد؟ ثغرات الـ Injection الدقيقة</h3>
+            <p class="blog-card-desc">دراسة حالة عن كيف تكلف ثغرة بسيطة ومخفية في استعلام قاعدة البيانات بعض الشركات الملايين، وكيفية تداركها.</p>
+            <div class="blog-read-more">اقرأ المقال</div>
+          </div>
+        </a>
+
+        <!-- Post 5 -->
+        <a href="#" class="blog-card">
+          <div class="blog-img-wrap">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" alt="Web Performance">
+          </div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">تطوير الويب</span>
+              <span>20 فبراير 2026</span>
+            </div>
+            <h3 class="blog-card-title">تأثير زمن التحميل على قرار الشراء لدى مستخدمي التجارة الإلكترونية</h3>
+            <p class="blog-card-desc">الأرقام لا تكذب. كل ثانية تأخير تسحب 7% من أرباحك الصافية. إليك الدليل الشامل لرفع أداء متجرك (Core Web Vitals).</p>
+            <div class="blog-read-more">اقرأ المقال</div>
+          </div>
+        </a>
+
+      </div>
+      
+      <div style="text-align: center; margin-bottom: 80px;">
+        <button class="w3-btn">تحميل المزيد</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w3-footer">
+    <div class="modern-container">
+      <div class="w3-footer-grid">
+        <div class="w3-footer-col">
+          <a href="../?modern=true" class="w3-logo" style="margin-bottom: 20px; display:inline-flex;">
+            <div class="w3-logo-icon">▲</div>
+            NEURAL IT
+          </a>
+          <p>نبني بنى تحتية سحابية غير قابلة للانهيار، واجهات ويب 3.0 سريعة كالبرق، ونطور حلول ذكاء اصطناعي تصنع الفارق للشركات الكبرى.</p>
+        </div>
+        <div class="w3-footer-col">
+          <h3>الروابط السريعة</h3>
+          <ul class="w3-footer-links">
+            <li><a href="../?modern=true">الرئيسية</a></li>
+            <li><a href="our-story.html">قصتنا</a></li>
+            <li><a href="service-details.html">الخدمات السحابية</a></li>
+            <li><a href="blog.html">المدونة التقنية</a></li>
+          </ul>
+        </div>
+        <div class="w3-footer-col">
+          <h3>تواصل معنا</h3>
+          <ul class="w3-footer-links">
+            <li style="direction: ltr; text-align: right;"><a href="https://wa.me/966XXXXXXXXX" target="_blank">+966 50 123 4567 :واتساب</a></li>
+            <li><a href="mailto:hello@neural-it.com">hello@neural-it.com</a></li>
+            <li><a href="#">الرياض، المملكة العربية السعودية</a></li>
+          </ul>
+        </div>
+        <div class="w3-footer-col">
+          <h3>الأنظمة الداخلية</h3>
+          <ul class="w3-footer-links">
+            <li><a href="../index.html">محاكي التسعينات (Legacy)</a></li>
+            <li><a href="../admin/index.html">بوابة الموظفين (CMS)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="w3-footer-bottom">
+        <div>© 2026 Neural IT. All rights reserved. Architectured for the Web 3.0 Era.</div>
+        <a href="../index.html" class="w3-return-btn" style="text-decoration: none;">العودة إلى الزمن الجميل (Win98)</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

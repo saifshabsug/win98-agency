@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Neural IT</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <a href="../?modern=true" class="sidebar-logo">
+        <div class="logo-icon">▲</div>
+        NEURAL IT
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <a class="nav-item active" data-target="view-overview">
+        <span class="nav-icon">📊</span> نظرة عامة
+      </a>
+      <a class="nav-item" data-target="view-projects">
+        <span class="nav-icon">📁</span> المشاريع (Portfolio)
+      </a>
+      <a class="nav-item" data-target="view-blog">
+        <span class="nav-icon">📝</span> المدونة والمقالات
+      </a>
+      <a class="nav-item" data-target="view-seo">
+        <span class="nav-icon">🔍</span> إعدادات الـ SEO
+      </a>
+      <a class="nav-item" data-target="view-leads">
+        <span class="nav-icon">📩</span> العملاء (Leads)
+      </a>
+      <a class="nav-item" data-target="view-admins">
+        <span class="nav-icon">🛡️</span> المدراء والصلاحيات
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="../?modern=true" class="nav-item" style="color:var(--w3-text-muted); font-size:14px;">
+        <span class="nav-icon">⇱</span> العودة للموقع
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-title" id="current-view-title">نظرة عامة (Overview)</div>
+      <div class="user-profile">
+        <span style="font-size: 14px; font-weight: 600;">أبو فيصل</span>
+        <div class="avatar">F</div>
+      </div>
+    </header>
+
+    <!-- Content Wrapper (Dynamic Views) -->
+    <div class="content-wrapper">
+
+      <!-- View: Overview -->
+      <section id="view-overview" class="view-section active">
+        <div class="page-header">
+          <h1 class="page-title">أهلاً بك، أبو فيصل</h1>
+          <button class="btn btn-primary">+ إنشاء تقرير חדش</button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-title">إجمالي الزيارات (هذا الشهر)</div>
+            <div class="stat-value">24,500</div>
+            <div class="stat-trend up">▲ 12% عن الشهر الماضي</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">العملاء المحتملين (Leads)</div>
+            <div class="stat-value">128</div>
+            <div class="stat-trend up">▲ 5% عن الشهر الماضي</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">المشاريع النشطة</div>
+            <div class="stat-value">14</div>
+            <div class="stat-trend" style="color:var(--w3-text-muted);">مستقر</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-title">أداء الـ SEO (متوسط الترتيب)</div>
+            <div class="stat-value">3.2</div>
+            <div class="stat-trend up">▲ 1.4 مرتبة للأعلى</div>
+          </div>
+        </div>
+
+        <h3 style="margin-bottom: 20px;">آخر الطلبات (Leads)</h3>
+        <div class="data-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>الاسم</th>
+                <th>الشركة</th>
+                <th>الخدمة المطلوبة</th>
+                <th>التاريخ</th>
+                <th>الحالة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>أحمد محمد</td>
+                <td>TechCorp</td>
+                <td>بنية سحابية</td>
+                <td>اليوم، 10:30 ص</td>
+                <td><span class="status-badge status-new">جديد</span></td>
+              </tr>
+              <tr>
+                <td>سارة علي</td>
+                <td>Startup Inc.</td>
+                <td>تطوير تطبيق جوال</td>
+                <td>أمس</td>
+                <td><span class="status-badge status-active">قيد المراجعة</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- View: Projects / Portfolio -->
+      <section id="view-projects" class="view-section">
+        <div class="page-header">
+          <h1 class="page-title">إدارة المشاريع</h1>
+          <button class="btn btn-primary">+ إضافة مشروع</button>
+        </div>
+        <div class="data-table-wrap">
+          <div class="table-header">
+            <input type="text" class="search-input" placeholder="ابحث عن مشروع...">
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>اسم المشروع</th>
+                <th>العميل</th>
+                <th>التصنيف</th>
+                <th>الحالة</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>نظام ERP سحابي</td>
+                <td>مجموعة الرياض</td>
+                <td>بنية سحابية</td>
+                <td><span class="status-badge status-active">منشور</span></td>
+                <td class="action-links"><a href="#">تعديل</a> <a href="#" class="delete">حذف</a></td>
+              </tr>
+              <tr>
+                <td>تطبيق توصيل طلبات</td>
+                <td>شركة الأطعمة</td>
+                <td>تطبيقات الجوال</td>
+                <td><span class="status-badge status-draft">مسودة</span></td>
+                <td class="action-links"><a href="#">تعديل</a> <a href="#" class="delete">حذف</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- View: Blog / Articles -->
+      <section id="view-blog" class="view-section">
+        <div class="page-header">
+          <h1 class="page-title">إدارة المدونة والمقالات</h1>
+          <button class="btn btn-primary" onclick="showArticleForm()">+ كتابة مقال جديد</button>
+        </div>
+        
+        <div id="articles-list" class="data-table-wrap">
+          <div class="table-header">
+            <input type="text" class="search-input" placeholder="ابحث في المقالات...">
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>عنوان المقال</th>
+                <th>الكاتب</th>
+                <th>التصنيف</th>
+                <th>المشاهدات</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>كيف تبني معمارية سحابية...</td>
+                <td>أبو فيصل</td>
+                <td>البنية السحابية</td>
+                <td>1,240</td>
+                <td class="action-links"><a href="#">تعديل</a> <a href="#" class="delete">حذف</a></td>
+              </tr>
+              <tr>
+                <td>ثورة الـ Agents...</td>
+                <td>أحمد التقني</td>
+                <td>الذكاء الاصطناعي</td>
+                <td>3,450</td>
+                <td class="action-links"><a href="#">تعديل</a> <a href="#" class="delete">حذف</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="article-form" style="display: none; max-width: 800px;">
+          <button class="btn" style="margin-bottom:20px;" onclick="hideArticleForm()">← عودة للقائمة</button>
+          <div class="data-table-wrap" style="padding: 30px;">
+            <div class="form-group">
+              <label class="form-label">عنوان المقال</label>
+              <input type="text" class="form-control" placeholder="أدخل عنوان المقال الجذاب">
+            </div>
+            <div class="form-group">
+              <label class="form-label">التصنيف</label>
+              <select class="form-control">
+                <option>تطوير ويب</option>
+                <option>ذكاء اصطناعي</option>
+                <option>أمن سيبراني</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">المحتوى</label>
+              <textarea class="form-control" style="min-height:300px;" placeholder="اكتب محتوى المقال هنا... يدعم الـ Markdown"></textarea>
+            </div>
+            <button class="btn btn-primary" onclick="hideArticleForm()">نشر المقال</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: SEO -->
+      <section id="view-seo" class="view-section">
+        <div class="page-header">
+          <h1 class="page-title">إعدادات الـ SEO العامة</h1>
+          <button class="btn btn-primary">حفظ الإعدادات</button>
+        </div>
+        <div class="data-table-wrap" style="padding: 30px; max-width: 800px;">
+          <div class="form-group">
+            <label class="form-label">عنوان الموقع الرئيسي (Meta Title)</label>
+            <input type="text" class="form-control" value="وكالة Neural IT للحلول السحابية والويب 3.0">
+          </div>
+          <div class="form-group">
+            <label class="form-label">وصف الموقع (Meta Description)</label>
+            <textarea class="form-control">نقدم خدمات تطوير الويب المتقدمة، بناء الخوادم السحابية المؤتمتة، وأمن المعلومات لشركات الـ Enterprise.</textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">الكلمات المفتاحية (Keywords - افصل بفاصلة)</label>
+            <input type="text" class="form-control" value="تطوير ويب, بنية سحابية, ذكاء اصطناعي, شركة برمجة بالسعودية">
+          </div>
+          <div class="form-group">
+            <label class="form-label">وسوم Tracking (Google Analytics / Pixel)</label>
+            <textarea class="form-control" placeholder="<script>...</script>"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Leads -->
+      <section id="view-leads" class="view-section">
+        <div class="page-header">
+          <h1 class="page-title">العملاء المحتملين (Leads)</h1>
+          <button class="btn">تصدير CSV</button>
+        </div>
+        <div class="data-table-wrap">
+          <div class="table-header">
+            <input type="text" class="search-input" placeholder="ابحث برقم الهاتف أو الاسم...">
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>العميل</th>
+                <th>رقم الواتساب</th>
+                <th>تاريخ الطلب</th>
+                <th>المصدر</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>محمد بن خالد</td>
+                <td dir="ltr">+966 50 123 4567</td>
+                <td>اليوم</td>
+                <td>Organic Google</td>
+                <td class="action-links">
+                  <a href="https://wa.me/966501234567" target="_blank" style="color:#25D366; font-weight:bold;">تواصل واتساب</a>
+                  <a href="#" class="delete">أرشفة</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- View: Admins -->
+      <section id="view-admins" class="view-section">
+        <div class="page-header">
+          <h1 class="page-title">إدارة المدراء (Admins)</h1>
+          <button class="btn btn-primary">+ إضافة مدير جديد</button>
+        </div>
+        <div class="data-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>الاسم</th>
+                <th>البريد الإلكتروني</th>
+                <th>الدور (Role)</th>
+                <th>آخر دخول</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>أبو فيصل</td>
+                <td>admin@neural-it.com</td>
+                <td>Super Admin</td>
+                <td>الآن</td>
+                <td class="action-links">-</td>
+              </tr>
+              <tr>
+                <td>محرر المحتوى</td>
+                <td>content@neural-it.com</td>
+                <td>Editor (المدونة فقط)</td>
+                <td>أمس</td>
+                <td class="action-links"><a href="#">تعديل صلاحيات</a> <a href="#" class="delete">حذف</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
